@@ -25,15 +25,16 @@ public class ReadyButton : MonoBehaviour
 
     private void Update()
     {
-        readyEnabled = true;
+        int bushes = 0;
         foreach (var holdingZone in shop.bank)
         {
-            if (holdingZone.holdedItem == null)
+            if (holdingZone.holdedItem != null)
             {
-                readyEnabled = false;
-                break;
+                bushes++;
             }
         }
+
+        readyEnabled = bushes >= 4;
 
         if (readyEnabled) GetComponent<SpriteRenderer>().sprite = readyEnabledSprite;
         else GetComponent<SpriteRenderer>().sprite = readyDisabledSprite;

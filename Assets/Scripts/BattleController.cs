@@ -63,10 +63,13 @@ public class BattleController : MonoBehaviour
         {
 
             Dice playerPlant = fightingHoles[i].holdedItem.GetComponent<Dice>();
+            int randomNumber = Random.Range(0, 6);
+            StartCoroutine(playerPlant.AnimateBattle(randomNumber));
+            yield return new WaitForSeconds(2);
             fightingHoles[i].holdedItem.gameObject.SetActive(false);
 
             this.soundEffectManager.PlayRollDice();
-            int randomNumber = Random.Range(0, 6);
+            
             playerPlant.selectedFace = playerPlant.diceFaces[randomNumber];
             GameObject newSingleBushFace = Instantiate(singleBushFacePrefab, fightingHoles[i].transform);
             newSingleBushFace.GetComponent<SingleBushFace>().SetDiceFace(playerPlant.selectedFace);
