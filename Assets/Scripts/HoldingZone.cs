@@ -33,6 +33,27 @@ public class HoldingZone : MonoBehaviour
         return !this.IsHoldingItem() && allowedTypes.Contains(item.tag);
     }
 
+    public bool CanConsumeItem(GameObject item)
+    {
+        return this.IsHoldingItem() && this.holdedItem.gameObject.tag == "Dice" && item.tag == "Face";
+    }
+
+    public void ConsumeItem(Grabbable item)
+    {
+        Dice dice = this.holdedItem.GetComponent<Dice>();
+        GrabbableDiceFace grabbableDiceFace = item.GetComponent<GrabbableDiceFace>();
+        if (dice != null && grabbableDiceFace != null)
+        {
+            dice.dicefaces[Random.Range(0, 6)] = grabbableDiceFace.diceFace;
+        }
+
+        if (grabbableDiceFace.holdingZone)
+        {
+            grabbableDiceFace.holdingZone.RemoveItem();
+        }
+        Destroy(item.gameObject);
+    }
+
     public void RemoveItem()
     {
         this.holdedItem.holdingZone = null;
@@ -62,5 +83,14 @@ public class HoldingZone : MonoBehaviour
         {
             this.grabManager.GrabObject(this.holdedItem);
         }
+    }
+    private void OnMouseEnter()
+    {
+        this.grabManager.SetReleaseZone(this);
+    }
+
+    private void OnMouseExit()
+    {
+        this.grabManager.UnsetReleaseZone();
     }
 }

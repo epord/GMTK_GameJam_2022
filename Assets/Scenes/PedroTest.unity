@@ -203,6 +203,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 595327269768850414, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
   m_PrefabInstance: {fileID: 888379508}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &175254927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 595327269768850412, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
+  m_PrefabInstance: {fileID: 888379508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &178686001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -417,7 +422,7 @@ PrefabInstance:
     - target: {fileID: 711484428517396486, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
       propertyPath: holdedItem
       value: 
-      objectReference: {fileID: 1999597618}
+      objectReference: {fileID: 1999597621}
     - target: {fileID: 711484428517396487, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -567,6 +572,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 595327269768850414, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
   m_PrefabInstance: {fileID: 617942948}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &500144758 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 595327269768850412, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
+  m_PrefabInstance: {fileID: 617942948}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &542239537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 595327269768850414, guid: 2344c681e8c5766449c714da218d8ba4, type: 3}
@@ -614,6 +624,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiceSide (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 595327269768850412, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
+      propertyPath: m_TagString
+      value: Face
+      objectReference: {fileID: 0}
     - target: {fileID: 595327269768850414, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -658,7 +672,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 595327269768850401, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
 --- !u!1001 &664735701
 PrefabInstance:
@@ -674,6 +689,10 @@ PrefabInstance:
     - target: {fileID: 595327269768850412, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
       propertyPath: m_Name
       value: DiceSide (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 595327269768850412, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
+      propertyPath: m_TagString
+      value: Face
       objectReference: {fileID: 0}
     - target: {fileID: 595327269768850414, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
       propertyPath: m_RootOrder
@@ -719,7 +738,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 595327269768850401, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
 --- !u!1001 &703017987
 PrefabInstance:
@@ -802,17 +822,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
---- !u!114 &712171711 stripped
+--- !u!114 &712171714
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 595327269768850401, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
-  m_PrefabInstance: {fileID: 617942948}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 500144758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01f6a1c515091224c940ed070f59ba4c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b327e48e3b9f96458f3c765b8eee9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGrabbed: 0
+  grabManager: {fileID: 0}
+  holdingZone: {fileID: 0}
+  diceFace:
+    attack: 0
+    defense: 0
+    firstAttack: 0
+    buff: 0
+    debuff: 0
 --- !u!4 &714602375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 711484428517396487, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
@@ -832,6 +862,10 @@ PrefabInstance:
     - target: {fileID: 595327269768850412, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
       propertyPath: m_Name
       value: DiceSide
+      objectReference: {fileID: 0}
+    - target: {fileID: 595327269768850412, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
+      propertyPath: m_TagString
+      value: Face
       objectReference: {fileID: 0}
     - target: {fileID: 595327269768850414, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
       propertyPath: m_RootOrder
@@ -877,7 +911,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 595327269768850401, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
 --- !u!4 &753594499 stripped
 Transform:
@@ -998,7 +1033,7 @@ PrefabInstance:
     - target: {fileID: 711484428517396486, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
       propertyPath: holdedItem
       value: 
-      objectReference: {fileID: 1202578508}
+      objectReference: {fileID: 1202578511}
     - target: {fileID: 711484428517396487, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1117,7 +1152,7 @@ PrefabInstance:
     - target: {fileID: 711484428517396486, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
       propertyPath: holdedItem
       value: 
-      objectReference: {fileID: 712171711}
+      objectReference: {fileID: 712171714}
     - target: {fileID: 711484428517396487, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1191,6 +1226,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiceSide (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 595327269768850412, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
+      propertyPath: m_TagString
+      value: Face
+      objectReference: {fileID: 0}
     - target: {fileID: 595327269768850414, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1235,7 +1274,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 595327269768850401, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
 --- !u!1001 &879956072
 PrefabInstance:
@@ -1329,6 +1369,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DiceSide (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 595327269768850412, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
+      propertyPath: m_TagString
+      value: Face
+      objectReference: {fileID: 0}
     - target: {fileID: 595327269768850414, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1373,8 +1417,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 595327269768850401, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
+--- !u!1 &1026249593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 595327269768850412, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
+  m_PrefabInstance: {fileID: 725327021}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1039661730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1642,7 +1692,7 @@ PrefabInstance:
     - target: {fileID: 711484428517396486, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
       propertyPath: holdedItem
       value: 
-      objectReference: {fileID: 2097029472}
+      objectReference: {fileID: 2097029475}
     - target: {fileID: 711484428517396487, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1850,17 +1900,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb973881f9d297a44a51067c2375a20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1202578508 stripped
+--- !u!114 &1202578511
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 595327269768850401, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
-  m_PrefabInstance: {fileID: 888379508}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 175254927}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01f6a1c515091224c940ed070f59ba4c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b327e48e3b9f96458f3c765b8eee9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGrabbed: 0
+  grabManager: {fileID: 0}
+  holdingZone: {fileID: 0}
+  diceFace:
+    attack: 0
+    defense: 0
+    firstAttack: 0
+    buff: 0
+    debuff: 0
 --- !u!1001 &1225916379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2019,17 +2079,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
---- !u!114 &1248141012 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 595327269768850401, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
-  m_PrefabInstance: {fileID: 664735701}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01f6a1c515091224c940ed070f59ba4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1311400561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2269,6 +2318,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 711484428517396487, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
   m_PrefabInstance: {fileID: 711484427354922989}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1557556927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 595327269768850412, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
+  m_PrefabInstance: {fileID: 664735701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1557556930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557556927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b327e48e3b9f96458f3c765b8eee9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrabbed: 0
+  grabManager: {fileID: 0}
+  holdingZone: {fileID: 0}
+  diceFace:
+    attack: 0
+    defense: 0
+    firstAttack: 0
+    buff: 0
+    debuff: 0
 --- !u!4 &1568365774 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 595327269768850414, guid: 2344c681e8c5766449c714da218d8ba4, type: 3}
@@ -2285,6 +2360,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f6a1c515091224c940ed070f59ba4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1578149124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 595327269768850412, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
+  m_PrefabInstance: {fileID: 869573057}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1601143845
 GameObject:
   m_ObjectHideFlags: 0
@@ -2713,17 +2793,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 711484428517396487, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
   m_PrefabInstance: {fileID: 1442310837}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1999597618 stripped
+--- !u!114 &1999597621
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 595327269768850401, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
-  m_PrefabInstance: {fileID: 725327021}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1026249593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01f6a1c515091224c940ed070f59ba4c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b327e48e3b9f96458f3c765b8eee9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGrabbed: 0
+  grabManager: {fileID: 0}
+  holdingZone: {fileID: 0}
+  diceFace:
+    attack: 0
+    defense: 0
+    firstAttack: 0
+    buff: 0
+    debuff: 0
 --- !u!1001 &2009597459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2815,7 +2905,7 @@ PrefabInstance:
     - target: {fileID: 711484428517396486, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
       propertyPath: holdedItem
       value: 
-      objectReference: {fileID: 1248141012}
+      objectReference: {fileID: 1557556930}
     - target: {fileID: 711484428517396487, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2879,17 +2969,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 595327269768850414, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
   m_PrefabInstance: {fileID: 869573057}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2097029472 stripped
+--- !u!114 &2097029475
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 595327269768850401, guid: 32ca535e5b1efd14a9d5cdf005689333, type: 3}
-  m_PrefabInstance: {fileID: 869573057}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1578149124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01f6a1c515091224c940ed070f59ba4c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b327e48e3b9f96458f3c765b8eee9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGrabbed: 0
+  grabManager: {fileID: 0}
+  holdingZone: {fileID: 0}
+  diceFace:
+    attack: 0
+    defense: 0
+    firstAttack: 0
+    buff: 0
+    debuff: 0
 --- !u!4 &2112265258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 711484428517396487, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}

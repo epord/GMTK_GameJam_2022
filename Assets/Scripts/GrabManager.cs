@@ -38,10 +38,15 @@ public class GrabManager : MonoBehaviour
         {
             return;
         }
-        if (this.releaseZone.CanHoldItemType(holdedObject.gameObject))
+        if (this.releaseZone.CanConsumeItem(this.holdedObject.gameObject))
+        {
+            this.releaseZone.ConsumeItem(this.holdedObject);
+        }
+        else if (this.releaseZone.CanHoldItemType(this.holdedObject.gameObject))
         {
             this.releaseZone.AssignItem(this.holdedObject);
-        } else
+        }
+        else
         {
             this.holdedObject.holdingZone.AssignItem(this.holdedObject);
         }

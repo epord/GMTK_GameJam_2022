@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 595327269768850401}
   m_Layer: 2
   m_Name: DiceSide
-  m_TagString: Untagged
+  m_TagString: Face
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
