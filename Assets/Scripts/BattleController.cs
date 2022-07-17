@@ -9,6 +9,8 @@ public class BattleController : MonoBehaviour
     private Enemy[] enemies;
 
     private Hole[] fightingHoles;
+
+    public bool doingBattle = false;
     
     // Start is called before the first frame update
     void Start()
@@ -22,8 +24,10 @@ public class BattleController : MonoBehaviour
         
     }
 
-    void DoBattle()
+    IEnumerator DoBattle()
     {
+        doingBattle = true;
+        
         for (int i = 0; i < 4; i++)
         {
             if (fightingHoles[i].dice == null || enemies[i].enemyFace == null)
@@ -39,6 +43,12 @@ public class BattleController : MonoBehaviour
         {
         
             Dice playerPlant = fightingHoles[i].dice;
+
+            int randomNumber = Random.Range(0, 6);
+            playerPlant.selectedFace = playerPlant.dicefaces[randomNumber];
+
+            yield return new WaitForSeconds(2);
+                
             DiceFace playerFace = playerPlant.selectedFace;
             Enemy enemyPlant = enemies[i];
             DiceFace enemyFace = enemyPlant.enemyFace;
@@ -54,18 +64,27 @@ public class BattleController : MonoBehaviour
                 playerPlant.alive = false;
                 deaths += 1;
             }
+            
+            yield return new WaitForSeconds(2);
         }
+        
+        yield return new WaitForSeconds(2);
 
         if (kills >= deaths)
         {
             // You won battle. Go to shop.
-            
+            foreach (var enemy in enemies)
+            {
+                enemy.enemyFace = null;
+            }
         }
         else
         {
             // You lost battle. Trigger loss
             
         }
+
+        doingBattle = false;
     }
 
 
