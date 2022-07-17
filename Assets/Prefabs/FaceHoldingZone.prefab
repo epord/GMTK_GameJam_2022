@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 711484428517396484}
   - component: {fileID: 711484428517396481}
   - component: {fileID: 711484428517396486}
-  - component: {fileID: 8170160516321554547}
+  - component: {fileID: -4273848465952167392}
   m_Layer: 0
   m_Name: FaceHoldingZone
   m_TagString: Untagged
@@ -118,7 +118,7 @@ MonoBehaviour:
   holdedItem: {fileID: 0}
   allowedTypes:
   - 
---- !u!114 &8170160516321554547
+--- !u!114 &-4273848465952167392
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,14 +127,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 711484428517396485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cfbc1a1e51386147abfc64aabe81157, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ebb6c44022bd3148a00767562a2b92b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdedItem: {fileID: 0}
-  allowedTypes: []
-  face:
-    attack: 0
-    defense: 0
-    firstAttack: 0
-    buff: 0
-    debuff: 0
+  holdingZone: {fileID: 0}
+  bushFace: {fileID: 239282387829123798, guid: 8259d8723a614114ebea3d3e81de1724, type: 3}

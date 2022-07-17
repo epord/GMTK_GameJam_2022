@@ -7,12 +7,18 @@ public class DiceFace
 {
     public int attack;
     public int defense;
-    public bool firstAttack;
-    public bool buff;
-    public bool debuff;
+    public Type type;
 
-    public DiceFace(int attack, int defense)
+    public enum Type
     {
+        PIMPOLLO,
+        OFFENSE_BUG,
+        DEFENSE_BUG
+    }
+
+    public DiceFace(Type type, int attack, int defense)
+    {
+        this.type = type;
         this.attack = attack;
         this.defense = defense;
     }

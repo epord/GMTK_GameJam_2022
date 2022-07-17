@@ -130,7 +130,7 @@ public class BattleController : MonoBehaviour
                 defense += 1;
             }
         }
-        DiceFace resultingFace = new DiceFace(attack, defense);
+        DiceFace resultingFace = new DiceFace(DiceFace.Type.PIMPOLLO ,attack, defense);
         return resultingFace;
     }
 }

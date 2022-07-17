@@ -8,6 +8,6 @@ public class GrabbableDiceFace : Grabbable
 
     private void Awake()
     {
-        this.diceFace = new DiceFace(Random.Range(0, 10), Random.Range(0, 10));
+        this.diceFace = new DiceFace(DiceFace.Type.PIMPOLLO ,Random.Range(0, 10), Random.Range(0, 10));
     }
 }

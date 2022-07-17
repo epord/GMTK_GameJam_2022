@@ -9,6 +9,7 @@ public class Dice : MonoBehaviour
     public DiceFace[] dicefaces;
 
     public DiceFace selectedFace;
+    public Transform[] flowerLocations;
 
     public bool alive;
 
@@ -17,7 +18,7 @@ public class Dice : MonoBehaviour
         this.dicefaces = new DiceFace[6];
         for (int i = 0; i < 6; i++)
         {
-            this.dicefaces[i] = new DiceFace(Random.RandomRange(0, 10), Random.RandomRange(0, 10));
+            this.dicefaces[i] = new DiceFace(DiceFace.Type.PIMPOLLO ,Random.RandomRange(0, 10), Random.RandomRange(0, 10));
         }
     }
 
