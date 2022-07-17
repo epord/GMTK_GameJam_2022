@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -97,23 +98,37 @@ public class BattleController : MonoBehaviour
 
         foreach (var hole in fightingHoles)
         {
-            Grabbable gameObject = hole.holdedItem;
-            foreach (var holding in shop.bank)
+            Grabbable playerGrabbabled = hole.holdedItem;
+            SingleBushFace fightingBushResult = hole.GetComponentInChildren<SingleBushFace>();
+
+            if (fightingBushResult.alive)
             {
-                if (holding.holdedItem == null)
+                playerGrabbabled.gameObject.SetActive(true);
+            
+                foreach (var holding in shop.bank)
                 {
-                    holding.AssignItem(gameObject);
-                    gameObject.enabled = true;
-                    hole.RemoveItem();
+                    if (!holding.IsHoldingItem())
+                    {
+                        hole.RemoveItem();
+                        holding.AssignItem(playerGrabbabled);
+                        break;
+                    }
                 }
             }
+            else
+            {
+                hole.RemoveItem();
+                Destroy(playerGrabbabled.gameObject);
+            }
+            Destroy(fightingBushResult.gameObject);
         }
 
         
-        /*foreach (var enemy in enemies)
+        foreach (var enemy in enemies)
         {
-            enemy.enemyFace = null;
-        }*/
+            SingleBushFace enemyBushResult = enemy.GetComponentInChildren<SingleBushFace>();
+            Destroy(enemyBushResult.gameObject);
+        }
         
         shop.gameObject.SetActive(true);
         doingBattle = false;

@@ -10,14 +10,14 @@ public class SingleBushFace : MonoBehaviour
     public GameObject pimpolloPrefab;
     public GameObject deadBushPrefab;
 
-    private GameObject pimpollo;
+    private GameObject pimpolloGameObject;
 
     public bool alive = true;
 
     public void Kill()
     {
         alive = false;
-        Destroy(pimpollo);
+        Destroy(pimpolloGameObject);
         Instantiate(deadBushPrefab, this.transform);
     }
 
@@ -30,8 +30,8 @@ public class SingleBushFace : MonoBehaviour
                 PimpolloComponent pimpollo = GetComponentInChildren<PimpolloComponent>();
                 if (pimpollo == null)
                 {
-                    GameObject newPimpollo = Instantiate(pimpolloPrefab, this.transform);
-                    pimpollo = newPimpollo.GetComponent<PimpolloComponent>();
+                    pimpolloGameObject = Instantiate(pimpolloPrefab, this.transform);
+                    pimpollo = pimpolloGameObject.GetComponent<PimpolloComponent>();
                 }
                 pimpollo.RenderFace(this.diceFace);
                 break;
