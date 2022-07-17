@@ -38,7 +38,7 @@ public class Help : MonoBehaviour
             {
                 helpScreen.SetActive(false);
                 helpScreen2.SetActive(false);
-                active = 0;
+                active = 3;
             }
         }
     }
