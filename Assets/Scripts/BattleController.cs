@@ -12,12 +12,13 @@ public class BattleController : MonoBehaviour
 
     public bool doingBattle = false;
     public GameObject singleBushFacePrefab;
-    public GameObject shop;
+
+    private Shop shop;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        shop = FindObjectOfType<Shop>();
     }
 
     // Update is called once per frame
@@ -50,8 +51,6 @@ public class BattleController : MonoBehaviour
         
         int kills = 0;
         int deaths = 0;
-        
-
 
         for (int i = 0; i < 4; i++)
         {
@@ -69,8 +68,6 @@ public class BattleController : MonoBehaviour
             Enemy enemyPlant = enemies[i];
             DiceFace enemyFace = enemyPlant.enemyFace;
 
-           
-            
             if (playerFace.attack > enemyFace.defense)
             {
                 Debug.Log("EnemyDead!");
@@ -92,21 +89,34 @@ public class BattleController : MonoBehaviour
         
         yield return new WaitForSeconds(2);
 
-        if (kills >= deaths)
-        {
-         //   shop.gameObject.SetActive()
-            //foreach (var enemy in enemies)
-            //{
-            //    enemy.enemyFace = null;
-            //}
-        }
-        else
+        if (kills < deaths)
         {
             // You lost battle. Trigger loss
-            
+         
         }
 
-        //doingBattle = false;
+        foreach (var hole in fightingHoles)
+        {
+            Grabbable gameObject = hole.holdedItem;
+            foreach (var holding in shop.bank)
+            {
+                if (holding.holdedItem == null)
+                {
+                    holding.AssignItem(gameObject);
+                    gameObject.enabled = true;
+                    hole.RemoveItem();
+                }
+            }
+        }
+
+        
+        /*foreach (var enemy in enemies)
+        {
+            enemy.enemyFace = null;
+        }*/
+        
+        shop.gameObject.SetActive(true);
+        doingBattle = false;
     }
 
 

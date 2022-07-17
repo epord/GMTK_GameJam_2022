@@ -4,21 +4,48 @@ using UnityEngine;
 
 public class ReadyButton : MonoBehaviour
 {
-    public GameObject shop;
-    public BattleController battleController;
+  
+    private BattleController battleController;
+    private Shop shop;
+    private GameObject shopObject;
+    private bool readyEnabled = false;
 
+    public Sprite readyEnabledSprite;
+    public Sprite readyDisabledSprite;
+    
     private void Start()
     {
-        this.battleController = FindObjectOfType<BattleController>();
+        battleController = FindObjectOfType<BattleController>();
+        shop = FindObjectOfType<Shop>();
+        shopObject = shop.gameObject;
+    }
+
+    private void Update()
+    {
+        readyEnabled = true;
+        foreach (var holdingZone in shop.bank)
+        {
+            if (holdingZone.holdedItem == null)
+            {
+                readyEnabled = false;
+                break;
+            }
+        }
+
+        if (readyEnabled) GetComponent<SpriteRenderer>().sprite = readyEnabledSprite;
+        else GetComponent<SpriteRenderer>().sprite = readyDisabledSprite;
+
     }
 
     private void OnMouseOver()
     {
-
-        if (Input.GetMouseButtonDown(0))
+        if (readyEnabled)
         {
-            shop.SetActive(false);
-            battleController.GenerateEnemies(4, 1);
+            if (Input.GetMouseButtonDown(0))
+            {
+                shopObject.SetActive(false);
+                battleController.GenerateEnemies(4, 1);
+            }
         }
     }
 }
