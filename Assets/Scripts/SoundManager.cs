@@ -53,6 +53,21 @@ public class SoundManager : MonoBehaviour
         audioSource.volume = startVolume;
     }
 
+    public IEnumerator FadeOut(float FadeTime)
+    {
+        float startVolume = source.volume;
+
+        while (source.volume > 0)
+        {
+            source.volume -= startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        source.Stop();
+        source.volume = startVolume;
+    }
+
     public IEnumerator PlayWin(AudioSource audioSource, float FadeTime)
     {
         float startVolume = audioSource.volume;

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class BattleController : MonoBehaviour
@@ -101,8 +102,11 @@ public class BattleController : MonoBehaviour
 
         if (kills < deaths)
         {
-            this.soundEffectManager.PlayLoose();
-         
+            StartCoroutine(this.soundManager.FadeOut(1f));
+            StartCoroutine(PlayLoose());
+            StartCoroutine(ShowEnd());
+
+            yield return new WaitForSeconds(20);
         }
 
         foreach (var hole in fightingHoles)
@@ -143,7 +147,22 @@ public class BattleController : MonoBehaviour
         shop.RefreshShop();
         shop.gameObject.SetActive(true);
         doingBattle = false;
+        this.soundManager.PlayShopMusic();
         this.soundEffectManager.PlayWin();
+    }
+
+    IEnumerator PlayLoose()
+    {
+        yield return new WaitForSeconds(0f);
+        this.soundEffectManager.PlayLoose();
+
+    }
+
+    IEnumerator ShowEnd()
+    {
+        yield return new WaitForSeconds(6f);
+        SceneManager.LoadScene("End", LoadSceneMode.Single);
+
     }
 
 
