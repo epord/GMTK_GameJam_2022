@@ -33,7 +33,7 @@ public class BreedButton : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (this.input1.IsHoldingItem() && this.input2.IsHoldingItem() && Input.GetMouseButtonDown(0))
+        if (this.input1.IsHoldingItem() && this.input2.IsHoldingItem() && !this.output.IsHoldingItem() && Input.GetMouseButtonDown(0))
         {
             GameObject newDice = Instantiate(dicePrefab, new Vector3(0, 0, 0), Quaternion.identity);
             this.output.AssignItem(newDice.GetComponent<Grabbable>());
