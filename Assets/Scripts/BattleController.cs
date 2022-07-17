@@ -102,9 +102,11 @@ public class BattleController : MonoBehaviour
 
         if (kills < deaths)
         {
+            PlayerPrefs.SetInt("score", shop.roundNumber);
             StartCoroutine(this.soundManager.FadeOut(1f));
             StartCoroutine(PlayLoose());
             StartCoroutine(ShowEnd());
+
 
             yield return new WaitForSeconds(20);
         }
@@ -161,7 +163,7 @@ public class BattleController : MonoBehaviour
     IEnumerator ShowEnd()
     {
         yield return new WaitForSeconds(6f);
-        SceneManager.LoadScene("End", LoadSceneMode.Single);
+        SceneManager.LoadScene("Score", LoadSceneMode.Single);
 
     }
 
