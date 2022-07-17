@@ -223,8 +223,14 @@ MonoBehaviour:
   - {fileID: 1604295131}
   - {fileID: 1097819412}
   - {fileID: 907989611}
+  fightingHoles:
+  - {fileID: 845855081}
+  - {fileID: 2060933701}
+  - {fileID: 1020959349}
+  - {fileID: 2146940106}
   doingBattle: 0
   singleBushFacePrefab: {fileID: 3265036594733572964, guid: 252266de08faae94c922ba8395809139, type: 3}
+  shop: {fileID: 0}
 --- !u!4 &120556301
 Transform:
   m_ObjectHideFlags: 0
@@ -489,7 +495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &519986928
 Transform:
   m_ObjectHideFlags: 0
@@ -791,11 +797,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 711484428517396485, guid: bf527ede650ffa04f818d88af856c116, type: 3}
       propertyPath: m_Name
-      value: DiceHoldingZone 1 (8)
+      value: fightingHole1
       objectReference: {fileID: 0}
     - target: {fileID: 711484428517396487, guid: bf527ede650ffa04f818d88af856c116, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 711484428517396487, guid: bf527ede650ffa04f818d88af856c116, type: 3}
       propertyPath: m_LocalPosition.x
@@ -844,6 +850,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 711484428517396487, guid: bf527ede650ffa04f818d88af856c116, type: 3}
   m_PrefabInstance: {fileID: 845855079}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &845855081 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 711484428517396486, guid: bf527ede650ffa04f818d88af856c116, type: 3}
+  m_PrefabInstance: {fileID: 845855079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb973881f9d297a44a51067c2375a20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &873630402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1020,11 +1037,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 711484428517396485, guid: bf527ede650ffa04f818d88af856c116, type: 3}
       propertyPath: m_Name
-      value: DiceHoldingZone 1 (10)
+      value: fightingHole3
       objectReference: {fileID: 0}
     - target: {fileID: 711484428517396487, guid: bf527ede650ffa04f818d88af856c116, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 711484428517396487, guid: bf527ede650ffa04f818d88af856c116, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1073,6 +1090,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 711484428517396487, guid: bf527ede650ffa04f818d88af856c116, type: 3}
   m_PrefabInstance: {fileID: 1020959347}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1020959349 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 711484428517396486, guid: bf527ede650ffa04f818d88af856c116, type: 3}
+  m_PrefabInstance: {fileID: 1020959347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb973881f9d297a44a51067c2375a20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1040044429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,10 +1421,10 @@ Transform:
   - {fileID: 815128505}
   - {fileID: 1484050376}
   - {fileID: 414288849}
-  - {fileID: 2146940105}
-  - {fileID: 1020959348}
-  - {fileID: 2060933700}
   - {fileID: 845855080}
+  - {fileID: 2060933700}
+  - {fileID: 1020959348}
+  - {fileID: 2146940105}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2297,11 +2325,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 711484428517396485, guid: bf527ede650ffa04f818d88af856c116, type: 3}
       propertyPath: m_Name
-      value: DiceHoldingZone 1 (9)
+      value: fightingHole2
       objectReference: {fileID: 0}
     - target: {fileID: 711484428517396487, guid: bf527ede650ffa04f818d88af856c116, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 711484428517396487, guid: bf527ede650ffa04f818d88af856c116, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2350,6 +2378,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 711484428517396487, guid: bf527ede650ffa04f818d88af856c116, type: 3}
   m_PrefabInstance: {fileID: 2060933699}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2060933701 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 711484428517396486, guid: bf527ede650ffa04f818d88af856c116, type: 3}
+  m_PrefabInstance: {fileID: 2060933699}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb973881f9d297a44a51067c2375a20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2094184703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2509,11 +2548,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 711484428517396485, guid: bf527ede650ffa04f818d88af856c116, type: 3}
       propertyPath: m_Name
-      value: DiceHoldingZone 1 (11)
+      value: fightingHole4
       objectReference: {fileID: 0}
     - target: {fileID: 711484428517396487, guid: bf527ede650ffa04f818d88af856c116, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 711484428517396487, guid: bf527ede650ffa04f818d88af856c116, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2562,6 +2601,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 711484428517396487, guid: bf527ede650ffa04f818d88af856c116, type: 3}
   m_PrefabInstance: {fileID: 2146940104}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2146940106 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 711484428517396486, guid: bf527ede650ffa04f818d88af856c116, type: 3}
+  m_PrefabInstance: {fileID: 2146940104}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb973881f9d297a44a51067c2375a20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &900821157782079310
 PrefabInstance:
   m_ObjectHideFlags: 0

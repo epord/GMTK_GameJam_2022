@@ -26,8 +26,7 @@ public class PimpolloGenerator : MonoBehaviour
             GameObject newBush = Instantiate(this.bushFace, this.transform);
             this.holdingZone.AssignItem(newBush.GetComponent<Grabbable>());
             BushFace bushFace = newBush.GetComponent<BushFace>();
-            int attack = Random.Range(0, 5);
-            bushFace.SetDiceFace(new DiceFace(DiceFace.Type.PIMPOLLO, attack, 5 - attack)); //TODO: funciton de DIEGO
+            bushFace.SetDiceFace(new DiceFace(DiceFace.Type.PIMPOLLO, 1, 1));
         }
     }
 }

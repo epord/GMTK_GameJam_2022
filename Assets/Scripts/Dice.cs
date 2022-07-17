@@ -10,6 +10,7 @@ public class Dice : MonoBehaviour
 
     public DiceFace selectedFace;
     public Transform[] flowerLocations;
+    public GameObject bushFacePrefab;
 
     public bool alive;
 
@@ -18,14 +19,12 @@ public class Dice : MonoBehaviour
         this.dicefaces = new DiceFace[6];
         for (int i = 0; i < 6; i++)
         {
-            this.dicefaces[i] = new DiceFace(DiceFace.Type.PIMPOLLO ,Random.RandomRange(0, 10), Random.RandomRange(0, 10));
+            this.dicefaces[i] = new DiceFace(DiceFace.Type.PIMPOLLO, 1, 1);
+            GameObject newBushFace = Instantiate(bushFacePrefab, this.flowerLocations[i].transform);
+            newBushFace.GetComponent<BushFace>().SetDiceFace(this.dicefaces[i]);
         }
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
 }

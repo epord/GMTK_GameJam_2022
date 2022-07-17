@@ -15,8 +15,8 @@ public class SingleBushFace : MonoBehaviour
         switch (diceFace.type)
         {
             case DiceFace.Type.PIMPOLLO:
-                Instantiate(pimpolloPrefab, this.transform);
-                pimpolloPrefab.GetComponent<PimpolloComponent>().RenderFace(diceFace);
+                GameObject newPimpollo = Instantiate(pimpolloPrefab, this.transform);
+                newPimpollo.GetComponent<PimpolloComponent>().RenderFace(diceFace);
                 break;
             //case DiceFace.Type.DEFENSE_BUG:
             //    Instantiate(defenseBug, this.transform);

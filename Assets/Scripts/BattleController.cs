@@ -8,11 +8,11 @@ public class BattleController : MonoBehaviour
 {
     public Enemy[] enemies;
 
-    private Hole[] fightingHoles;
+    public HoldingZone[] fightingHoles;
 
     public bool doingBattle = false;
     public GameObject singleBushFacePrefab;
-
+    public GameObject shop;
     
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,17 @@ public class BattleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        foreach(HoldingZone holdingZone in fightingHoles)
+        {
+            if (!holdingZone.IsHoldingItem())
+            {
+                return;
+            }
+        }
+        if (!this.doingBattle)
+        {
+            StartCoroutine(this.DoBattle());
+        }
     }
 
     IEnumerator DoBattle()
@@ -32,7 +42,7 @@ public class BattleController : MonoBehaviour
         
         for (int i = 0; i < 4; i++)
         {
-            if (fightingHoles[i].dice == null || enemies[i].enemyFace == null)
+            if (fightingHoles[i].holdedItem.GetComponent<Dice>() == null || enemies[i].enemyFace == null)
             {
                 throw new Exception();
             }
@@ -41,13 +51,17 @@ public class BattleController : MonoBehaviour
         int kills = 0;
         int deaths = 0;
         
+
+
         for (int i = 0; i < 4; i++)
         {
-        
-            Dice playerPlant = fightingHoles[i].dice;
+            Dice playerPlant = fightingHoles[i].holdedItem.GetComponent<Dice>();
+            fightingHoles[i].holdedItem.gameObject.SetActive(false);
 
             int randomNumber = Random.Range(0, 6);
             playerPlant.selectedFace = playerPlant.dicefaces[randomNumber];
+            GameObject newSingleBushFace = Instantiate(singleBushFacePrefab, fightingHoles[i].transform);
+            newSingleBushFace.GetComponent<SingleBushFace>().SetDiceFace(playerPlant.selectedFace);
 
             yield return new WaitForSeconds(2);
                 
@@ -74,11 +88,11 @@ public class BattleController : MonoBehaviour
 
         if (kills >= deaths)
         {
-            // You won battle. Go to shop.
-            foreach (var enemy in enemies)
-            {
-                enemy.enemyFace = null;
-            }
+         //   shop.gameObject.SetActive()
+            //foreach (var enemy in enemies)
+            //{
+            //    enemy.enemyFace = null;
+            //}
         }
         else
         {
@@ -86,7 +100,7 @@ public class BattleController : MonoBehaviour
             
         }
 
-        doingBattle = false;
+        //doingBattle = false;
     }
 
 

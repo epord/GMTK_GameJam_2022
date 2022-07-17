@@ -16,8 +16,17 @@ public class PimpolloComponent : MonoBehaviour
     public Sprite defensePimpollo;
     public Sprite mixedPimpollo;
 
+
+
     public void RenderFace(DiceFace diceFace)
     {
+        leaf1.sprite = null;
+        leaf2.sprite = null;
+        leaf3.sprite = null;
+        leaf4.sprite = null;
+        leaf5.sprite = null;
+        pimpollo.sprite = null;
+
         if (diceFace.attack > 0)
         {
             if (diceFace.defense > 0)
