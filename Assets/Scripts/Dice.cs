@@ -32,5 +32,13 @@ public class Dice : MonoBehaviour
         flowerLocations[idx].GetComponentInChildren<BushFace>().SetDiceFace(diceFace);
     }
 
+    public void SetDiceFaces(DiceFace[] newDiceFaces)
+    {
+        for(int i = 0; i < 6; i++)
+        {
+            this.ReplaceFace(i, newDiceFaces[i]);
+        }
+    }
+
 
 }
