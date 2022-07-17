@@ -65,7 +65,7 @@ public class HoldingZone : MonoBehaviour
         if (this.holdedItem != null)
         {
             Vector3 releaseZonePos = this.transform.position;
-            this.holdedItem.transform.position = new Vector3(releaseZonePos.x, releaseZonePos.y, this.transform.position.z);
+            this.holdedItem.transform.position = new Vector3(releaseZonePos.x, releaseZonePos.y, -1);
             this.holdedItem.isGrabbed = false;
         }
     }
