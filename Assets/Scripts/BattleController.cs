@@ -15,6 +15,8 @@ public class BattleController : MonoBehaviour
     public bool doingBattle = false;
     public GameObject singleBushFacePrefab;
 
+    private bool firstTime = true;
+
     private Shop shop;
     private SoundManager soundManager;
     private SoundEffectManager soundEffectManager;
@@ -155,6 +157,7 @@ public class BattleController : MonoBehaviour
         doingBattle = false;
         this.soundManager.PlayShopMusic();
         this.soundEffectManager.PlayWin();
+        FindObjectOfType<Help>().OpenHelp();
     }
 
     IEnumerator PlayLoose()
