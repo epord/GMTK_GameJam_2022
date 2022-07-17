@@ -495,7 +495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &519986928
 Transform:
   m_ObjectHideFlags: 0
@@ -962,7 +962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908abd28b61e9e34b85b1fa07e322cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alive: 0
   enemyFace:
     attack: 0
     defense: 0
@@ -1380,7 +1379,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908abd28b61e9e34b85b1fa07e322cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alive: 0
   enemyFace:
     attack: 0
     defense: 0
@@ -1817,7 +1815,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908abd28b61e9e34b85b1fa07e322cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alive: 0
   enemyFace:
     attack: 0
     defense: 0
@@ -2090,7 +2087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908abd28b61e9e34b85b1fa07e322cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alive: 0
   enemyFace:
     attack: 0
     defense: 0
@@ -2667,5 +2663,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: SingleBushFace
       objectReference: {fileID: 0}
+    - target: {fileID: 5180375505614998088, guid: 252266de08faae94c922ba8395809139, type: 3}
+      propertyPath: deadBushPrefab
+      value: 
+      objectReference: {fileID: 269032481582204339, guid: 4e5622cc23f337d42b872295fe4fc1c7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 252266de08faae94c922ba8395809139, type: 3}

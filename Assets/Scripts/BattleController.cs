@@ -71,13 +71,13 @@ public class BattleController : MonoBehaviour
 
             if (playerFace.attack > enemyFace.defense)
             {
-                enemyPlant.alive = false;
+                enemyPlant.gameObject.GetComponent<SingleBushFace>().alive = false;
                 kills += 1;
             }
 
             if (enemyFace.attack > playerFace.defense)
             {
-                playerPlant.alive = false;
+                playerPlant.gameObject.GetComponent<SingleBushFace>().alive = false;
                 deaths += 1;
             }
             
@@ -126,7 +126,6 @@ public class BattleController : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             DiceFace enemyFace = GenerateFace(dificulties[i]);
-            enemies[i].alive = true;
             enemies[i].enemyFace = enemyFace;
             GameObject newSingleBushFace = Instantiate(singleBushFacePrefab, enemies[i].transform);
             newSingleBushFace.GetComponent<SingleBushFace>().SetDiceFace(enemyFace);
