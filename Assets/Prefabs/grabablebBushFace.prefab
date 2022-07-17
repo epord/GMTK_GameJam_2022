@@ -51,7 +51,7 @@ MonoBehaviour:
     type: 0
   defenseBug: {fileID: 0}
   offenseBug: {fileID: 0}
-  pimpollo: {fileID: 4850404601100590185, guid: d5a63a982987b4a4687d6a47b6388db4, type: 3}
+  pimpolloPrefab: {fileID: 4850404601100590185, guid: d5a63a982987b4a4687d6a47b6388db4, type: 3}
 --- !u!114 &103783486179010522
 MonoBehaviour:
   m_ObjectHideFlags: 0

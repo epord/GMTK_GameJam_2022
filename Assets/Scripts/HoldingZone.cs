@@ -44,7 +44,11 @@ public class HoldingZone : MonoBehaviour
         GrabbableDiceFace grabbableDiceFace = item.GetComponent<GrabbableDiceFace>();
         if (dice != null && grabbableDiceFace != null)
         {
-            dice.dicefaces[Random.Range(0, 6)] = grabbableDiceFace.diceFace;
+            int idx = Random.Range(0, 6);
+            dice.dicefaces[idx] = grabbableDiceFace.diceFace;
+            BushFace bushFace = dice.flowerLocations[idx].GetComponentInChildren<BushFace>();
+            bushFace.SetDiceFace(dice.dicefaces[idx]);
+
         }
 
         if (grabbableDiceFace.holdingZone)

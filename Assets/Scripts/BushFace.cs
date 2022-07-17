@@ -7,7 +7,7 @@ public class BushFace : MonoBehaviour
     public DiceFace diceFace;
     public GameObject defenseBug;
     public GameObject offenseBug;
-    public GameObject pimpollo;
+    public GameObject pimpolloPrefab;
 
     public void SetDiceFace(DiceFace diceFace)
     {
@@ -15,8 +15,8 @@ public class BushFace : MonoBehaviour
         switch (diceFace.type)
         {
             case DiceFace.Type.PIMPOLLO:
-                Instantiate(pimpollo, this.transform);
-                pimpollo.GetComponent<PimpolloComponent>().RenderFace(diceFace);
+                GameObject newPimpollo = Instantiate(pimpolloPrefab, this.transform);
+                newPimpollo.GetComponent<PimpolloComponent>().RenderFace(diceFace);
                 break;
             case DiceFace.Type.DEFENSE_BUG:
                 Instantiate(defenseBug, this.transform);
