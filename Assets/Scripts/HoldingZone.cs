@@ -17,7 +17,7 @@ public class HoldingZone : MonoBehaviour
         }
     }
 
-    public void AssignItem(Grabbable item)
+    public virtual void AssignItem(Grabbable item)
     {
         if (item.holdingZone)
         {
@@ -28,7 +28,7 @@ public class HoldingZone : MonoBehaviour
         this.SnapHoldedItem();
     }
 
-    public bool CanHoldItemType(GameObject item)
+    public virtual bool CanHoldItemType(GameObject item)
     {
         return !this.IsHoldingItem() && allowedTypes.Contains(item.tag);
     }
