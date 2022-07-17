@@ -8,14 +8,4 @@ public class SnappingZone : HoldingZone
     {
         base.Start();
     }
-
-    private void OnMouseEnter()
-    {
-        this.grabManager.SetReleaseZone(this);
-    }
-
-    private void OnMouseExit()
-    {
-        this.grabManager.UnsetReleaseZone();
-    }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 595327269768850415}
   - component: {fileID: 595327269768850400}
   - component: {fileID: 595327269768850401}
+  - component: {fileID: 589230878463290340}
   m_Layer: 2
   m_Name: Cube
   m_TagString: Dice
@@ -127,3 +128,17 @@ MonoBehaviour:
   isGrabbed: 0
   grabManager: {fileID: 0}
   holdingZone: {fileID: 0}
+--- !u!114 &589230878463290340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595327269768850412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe9eed33befeba840b729d960a12dd76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dicefaces: []
+  selectedFace: {fileID: 0}

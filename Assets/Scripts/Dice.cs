@@ -5,16 +5,20 @@ using UnityEngine.UIElements;
 
 public class Dice : MonoBehaviour
 {
+    [SerializeField]
     public DiceFace[] dicefaces;
 
     public DiceFace selectedFace;
 
     public bool alive;
 
-// Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        this.dicefaces = new DiceFace[6];
+        for (int i = 0; i < 6; i++)
+        {
+            this.dicefaces[i] = new DiceFace(Random.RandomRange(0, 10), Random.RandomRange(0, 10));
+        }
     }
 
     // Update is called once per frame
@@ -22,4 +26,5 @@ public class Dice : MonoBehaviour
     {
         
     }
+
 }
