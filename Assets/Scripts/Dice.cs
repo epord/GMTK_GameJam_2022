@@ -55,16 +55,19 @@ public class Dice : MonoBehaviour
         }
     }
 
+    public IEnumerator AnimateFlower(int index)
+    {
+        ParticleSystem system = flowerLocations[index].GetComponentInChildren<ParticleSystem>();
+        system.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        system.Play();
+        yield return 0;
+    }
 
     public IEnumerator AnimateBattle(int selectedIndex)
     {
         for(int i = 0; i < 6; i++)
         {
-            Debug.Log("PLAYING");
-            ParticleSystem system = flowerLocations[i].GetComponentInChildren<ParticleSystem>();
-            system.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-            system.Play();
-            
+            StartCoroutine(AnimateFlower(i));
             yield return new WaitForSeconds(0.2f);
         }
         ParticleSystem selectdSystem = flowerLocations[selectedIndex].GetComponentsInChildren<ParticleSystem>()[1];

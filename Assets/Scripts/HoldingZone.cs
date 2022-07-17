@@ -47,6 +47,7 @@ public class HoldingZone : MonoBehaviour
         {
             int idx = Random.Range(0, 6);
             dice.ReplaceFace(idx, bushFace.diceFace);
+            StartCoroutine(dice.AnimateFlower(idx));
 
         }
 
