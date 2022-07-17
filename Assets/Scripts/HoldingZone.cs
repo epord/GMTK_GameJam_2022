@@ -40,20 +40,24 @@ public class HoldingZone : MonoBehaviour
 
     public void ConsumeItem(Grabbable item)
     {
+        Debug.Log("Consume item");
+        if (item != null && item.GetComponent<BushFace>() != null)
+        {
+            Debug.Log(item.GetComponent<BushFace>().diceFace.attack);
+            Debug.Log(item.GetComponent<BushFace>().diceFace.defense);
+        }
         Dice dice = this.holdedItem.GetComponent<Dice>();
-        GrabbableDiceFace grabbableDiceFace = item.GetComponent<GrabbableDiceFace>();
-        if (dice != null && grabbableDiceFace != null)
+        BushFace bushFace = item.GetComponent<BushFace>();
+        if (dice != null && bushFace != null)
         {
             int idx = Random.Range(0, 6);
-            dice.dicefaces[idx] = grabbableDiceFace.diceFace;
-            BushFace bushFace = dice.flowerLocations[idx].GetComponentInChildren<BushFace>();
-            bushFace.SetDiceFace(dice.dicefaces[idx]);
+            dice.ReplaceFace(idx, bushFace.diceFace);
 
         }
 
-        if (grabbableDiceFace.holdingZone)
+        if (bushFace.GetComponent<Grabbable>() != null)
         {
-            grabbableDiceFace.holdingZone.RemoveItem();
+            bushFace.GetComponent<Grabbable>().holdingZone.RemoveItem();
         }
         Destroy(item.gameObject);
     }
@@ -81,15 +85,25 @@ public class HoldingZone : MonoBehaviour
 
     private void OnMouseOver()
     {
-        this.grabManager.SetReleaseZone(this);
-
         if (this.IsHoldingItem() && Input.GetMouseButtonDown(0))
         {
+            Debug.Log("Mouse click");
+            if (this.IsHoldingItem() && this.holdedItem.GetComponent<BushFace>() != null)
+            {
+                Debug.Log(this.holdedItem.GetComponent<BushFace>().diceFace.attack);
+                Debug.Log(this.holdedItem.GetComponent<BushFace>().diceFace.defense);
+            }
             this.grabManager.GrabObject(this.holdedItem);
         }
     }
     private void OnMouseEnter()
     {
+        Debug.Log("Mouse enter");
+        if (this.IsHoldingItem() && this.holdedItem.GetComponent<BushFace>() != null)
+        {
+            Debug.Log(this.holdedItem.GetComponent<BushFace>().diceFace.attack);
+            Debug.Log(this.holdedItem.GetComponent<BushFace>().diceFace.defense);
+        }
         this.grabManager.SetReleaseZone(this);
     }
 

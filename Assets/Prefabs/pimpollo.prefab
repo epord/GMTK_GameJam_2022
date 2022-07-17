@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 4850404601100590184}
   m_Layer: 0
   m_Name: pimpollo
-  m_TagString: Face
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

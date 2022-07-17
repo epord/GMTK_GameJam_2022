@@ -11,12 +11,20 @@ public class BushFace : MonoBehaviour
 
     public void SetDiceFace(DiceFace diceFace)
     {
+        Debug.Log("SetDiceFace");
+        Debug.Log(diceFace.attack);
+        Debug.Log(diceFace.defense);
         this.diceFace = diceFace;
         switch (diceFace.type)
         {
             case DiceFace.Type.PIMPOLLO:
-                GameObject newPimpollo = Instantiate(pimpolloPrefab, this.transform);
-                newPimpollo.GetComponent<PimpolloComponent>().RenderFace(diceFace);
+                PimpolloComponent pimpollo = GetComponentInChildren<PimpolloComponent>();
+                if (pimpollo == null)
+                {
+                    GameObject newPimpollo = Instantiate(pimpolloPrefab, this.transform);
+                    pimpollo = newPimpollo.GetComponent<PimpolloComponent>();
+                }
+                pimpollo.RenderFace(this.diceFace);
                 break;
             case DiceFace.Type.DEFENSE_BUG:
                 Instantiate(defenseBug, this.transform);
