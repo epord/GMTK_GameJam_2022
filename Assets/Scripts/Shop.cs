@@ -8,6 +8,7 @@ public class Shop : MonoBehaviour
     public HoldingZone[] bank = new HoldingZone[8];
     public PimpolloGenerator[] PimpolloGenerators = new PimpolloGenerator[6];
     public HoldingZone[] cleanZones;
+    public HoldingZone[] FightingZones;
 
     public int roundNumber = 1;
 
@@ -17,6 +18,10 @@ public class Shop : MonoBehaviour
         GetComponentInChildren<BreedButton>().breedRemaining = 3;
         CleanZones();
         GeneratePimpollo();
+        foreach (var holdingZone in FightingZones)
+        {
+            holdingZone.gameObject.SetActive(false);
+        }
     }
 
     private void CleanZones()

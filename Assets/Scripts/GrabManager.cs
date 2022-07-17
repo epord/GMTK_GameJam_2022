@@ -6,31 +6,43 @@ public class GrabManager : MonoBehaviour
 {
     public Grabbable holdedObject;
     public HoldingZone releaseZone;
+    private BattleController battleController;
+
+    private void Start()
+    {
+        battleController = FindObjectOfType<BattleController>();
+    }
 
     void Update()
     {
-        if (this.IsHoldingObject() && Input.GetMouseButton(0))
+        if (!battleController.doingBattle)
         {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = 10;
-            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePos);
-            this.holdedObject.transform.position = new Vector3(worldMousePosition.x, worldMousePosition.y, -2);
-        }
-        else if (this.IsHoldingObject() && Input.GetMouseButtonUp(0))
-        {
-            this.ReleaseObject();
+            if (this.IsHoldingObject() && Input.GetMouseButton(0))
+            {
+                Vector3 mousePos = Input.mousePosition;
+                mousePos.z = 10;
+                Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePos);
+                this.holdedObject.transform.position = new Vector3(worldMousePosition.x, worldMousePosition.y, -2);
+            }
+            else if (this.IsHoldingObject() && Input.GetMouseButtonUp(0))
+            {
+                this.ReleaseObject();
+            }
         }
     }
 
     public void GrabObject(Grabbable o)
     {
-        if (this.holdedObject != null)
+        if (!battleController.doingBattle)
         {
-            throw new System.Exception("There is already an object being holded");
-        }
+            if (this.holdedObject != null)
+            {
+                throw new System.Exception("There is already an object being holded");
+            }
 
-        this.holdedObject = o;
-        o.isGrabbed = true;
+            this.holdedObject = o;
+            o.isGrabbed = true;
+        }
     }
 
     public void ReleaseObject()

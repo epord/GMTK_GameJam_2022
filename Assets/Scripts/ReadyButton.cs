@@ -46,6 +46,10 @@ public class ReadyButton : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                foreach (var holdingZone in shop.FightingZones)
+                {
+                    holdingZone.gameObject.SetActive(true);
+                }
                 shopObject.SetActive(false);
                 battleController.GenerateEnemies(4, shop.roundNumber*2);
                 this.soundManager.PlayBattleMusic();
