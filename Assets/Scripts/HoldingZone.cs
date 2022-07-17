@@ -23,6 +23,7 @@ public class HoldingZone : MonoBehaviour
         {
             item.holdingZone.RemoveItem();
         }
+        item.transform.SetParent(this.transform);
         this.holdedItem = item;
         this.holdedItem.holdingZone = this;
         this.SnapHoldedItem();
@@ -40,12 +41,6 @@ public class HoldingZone : MonoBehaviour
 
     public void ConsumeItem(Grabbable item)
     {
-        Debug.Log("Consume item");
-        if (item != null && item.GetComponent<BushFace>() != null)
-        {
-            Debug.Log(item.GetComponent<BushFace>().diceFace.attack);
-            Debug.Log(item.GetComponent<BushFace>().diceFace.defense);
-        }
         Dice dice = this.holdedItem.GetComponent<Dice>();
         BushFace bushFace = item.GetComponent<BushFace>();
         if (dice != null && bushFace != null)
@@ -87,23 +82,11 @@ public class HoldingZone : MonoBehaviour
     {
         if (this.IsHoldingItem() && Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Mouse click");
-            if (this.IsHoldingItem() && this.holdedItem.GetComponent<BushFace>() != null)
-            {
-                Debug.Log(this.holdedItem.GetComponent<BushFace>().diceFace.attack);
-                Debug.Log(this.holdedItem.GetComponent<BushFace>().diceFace.defense);
-            }
             this.grabManager.GrabObject(this.holdedItem);
         }
     }
     private void OnMouseEnter()
     {
-        Debug.Log("Mouse enter");
-        if (this.IsHoldingItem() && this.holdedItem.GetComponent<BushFace>() != null)
-        {
-            Debug.Log(this.holdedItem.GetComponent<BushFace>().diceFace.attack);
-            Debug.Log(this.holdedItem.GetComponent<BushFace>().diceFace.defense);
-        }
         this.grabManager.SetReleaseZone(this);
     }
 

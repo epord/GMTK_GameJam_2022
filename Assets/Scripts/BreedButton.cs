@@ -51,8 +51,11 @@ public class BreedButton : MonoBehaviour
         DiceFace[] daddyClone = (DiceFace[])daddy.Clone();
         DiceFace[] mommyClone = (DiceFace[])mommy.Clone();
 
-        Array.Sort(daddyClone, (x, y) => UnityEngine.Random.RandomRange(-10, 10));
-        Array.Sort(mommyClone, (x, y) => UnityEngine.Random.RandomRange(-10, 10));
+        for (int i = 0; i < 4; i++)
+        {
+            Array.Sort(daddyClone, (x, y) => UnityEngine.Random.RandomRange(-10, 10));
+            Array.Sort(mommyClone, (x, y) => UnityEngine.Random.RandomRange(-10, 10));
+        }
 
         result.SetDiceFaces(new DiceFace[] { daddyClone[0], daddyClone[1], daddyClone[2], mommyClone[0], mommyClone[1], mommyClone[2]});
     }
