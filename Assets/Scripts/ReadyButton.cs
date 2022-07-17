@@ -10,10 +10,12 @@ public class ReadyButton : MonoBehaviour
     private GameObject shopObject;
     private bool readyEnabled = false;
 
-    public Sprite readyEnabledSprite;
-    public Sprite readyDisabledSprite;
+    public Sprite[] readySprites = new Sprite[9];
+    public Sprite hoveringSprite;
 
     private SoundManager soundManager;
+
+    private bool hovering;
 
     private void Start()
     {
@@ -33,16 +35,26 @@ public class ReadyButton : MonoBehaviour
                 bushes++;
             }
         }
+        readyEnabled = bushes >= 8;
+        GetComponent<SpriteRenderer>().sprite = readySprites[bushes];
 
-        readyEnabled = bushes >= 4;
-
-        if (readyEnabled) GetComponent<SpriteRenderer>().sprite = readyEnabledSprite;
-        else GetComponent<SpriteRenderer>().sprite = readyDisabledSprite;
-
+        if (readyEnabled)
+        {
+            if (hovering)
+            {
+                GetComponent<SpriteRenderer>().sprite = hoveringSprite;
+            }
+        }
+    }
+    
+    private void OnMouseExit()
+    {
+        hovering = false;
     }
 
     private void OnMouseOver()
     {
+        hovering = true;
         if (readyEnabled)
         {
             if (Input.GetMouseButtonDown(0))

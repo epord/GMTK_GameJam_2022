@@ -744,8 +744,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e4e5ecc5c17c745b8c469f6ff8db7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  readyEnabledSprite: {fileID: 21300000, guid: 775c73be9091f8f40ba1254ebab410d6, type: 3}
-  readyDisabledSprite: {fileID: 21300000, guid: bcc7a234e7b4c284c9a03d3bb983f766, type: 3}
+  readySprites:
+  - {fileID: 21300000, guid: 7137e0aef9140f44f9af69639f45716c, type: 3}
+  - {fileID: 21300000, guid: 30665bc6e2cda8b428a82ed70920022a, type: 3}
+  - {fileID: 21300000, guid: 71434f70f3ce4c749977022a27e85859, type: 3}
+  - {fileID: 21300000, guid: c37a2cd6027bc834a978fd5218ba092c, type: 3}
+  - {fileID: 21300000, guid: 0c73f25969f3bd54e854c48cddee52c4, type: 3}
+  - {fileID: 21300000, guid: e0622cdc317fa034d9d332c60184126e, type: 3}
+  - {fileID: 21300000, guid: 66de3197ba83280428191565a7c5ff29, type: 3}
+  - {fileID: 21300000, guid: 3b647457bea074749a27e1f7baea8fe5, type: 3}
+  - {fileID: 21300000, guid: c2cd5b750ca340c41a9cc0a2e266e1c2, type: 3}
+  hoveringSprite: {fileID: 21300000, guid: d954ea09ca5f42546882bedaea74d1e2, type: 3}
 --- !u!212 &682973153
 SpriteRenderer:
   m_ObjectHideFlags: 0
