@@ -19,7 +19,22 @@ public class Dice : MonoBehaviour
         this.diceFaces = new DiceFace[6];
         for (int i = 0; i < 6; i++)
         {
-            this.diceFaces[i] = new DiceFace(DiceFace.Type.PIMPOLLO, 1, 1);
+            float random = Random.RandomRange(0f, 1f);
+            if (random < 0.3f)
+            {
+                this.diceFaces[i] = new DiceFace(DiceFace.Type.PIMPOLLO, 1, 0);
+            }
+            else if(random < 0.5)
+            {
+                this.diceFaces[i] = new DiceFace(DiceFace.Type.PIMPOLLO, 2, 0);
+            } else if (random < 0.7) {
+                this.diceFaces[i] = new DiceFace(DiceFace.Type.PIMPOLLO, 0, 1);
+            }
+            else
+            {
+                this.diceFaces[i] = new DiceFace(DiceFace.Type.PIMPOLLO, 1, 1);
+            }
+            
             GameObject newBushFace = Instantiate(bushFacePrefab, this.flowerLocations[i].transform);
             newBushFace.GetComponent<BushFace>().SetDiceFace(this.diceFaces[i]);
         }

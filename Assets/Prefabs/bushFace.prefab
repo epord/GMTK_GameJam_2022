@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diceFace:
     attack: 1
-    defense: 2
+    defense: 0
     type: 0
   defenseBug: {fileID: 0}
   offenseBug: {fileID: 0}

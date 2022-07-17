@@ -129,8 +129,9 @@ public class BattleController : MonoBehaviour
             SingleBushFace enemyBushResult = enemy.GetComponentInChildren<SingleBushFace>();
             Destroy(enemyBushResult.gameObject);
         }
-
-        shop.GetComponentInChildren<BreedButton>().breedRemaining = 3;
+        
+        
+        shop.RefreshShop();
         shop.gameObject.SetActive(true);
         doingBattle = false;
     }
@@ -141,7 +142,7 @@ public class BattleController : MonoBehaviour
         int[] dificulties = new int[numEnemies];
         int count = 0;
         int indice = 0;
-        while (count <= dificulty)
+        while (count < dificulty)
         {
             if (Random.Range(0f, 1f) < 0.5f)
             {

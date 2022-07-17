@@ -44,7 +44,7 @@ public class ReadyButton : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 shopObject.SetActive(false);
-                battleController.GenerateEnemies(4, 1);
+                battleController.GenerateEnemies(4, shop.roundNumber*2);
             }
         }
     }
