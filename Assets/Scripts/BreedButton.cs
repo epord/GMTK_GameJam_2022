@@ -58,6 +58,7 @@ public class BreedButton : MonoBehaviour
 
             GameObject newDice = Instantiate(dicePrefab, new Vector3(0, 0, 0), Quaternion.identity);
             this.BreedDice(dice1, dice2, newDice.GetComponent<Dice>());
+            FindObjectOfType<SoundEffectManager>().PlayMutation();
 
             this.output.AssignItem(newDice.GetComponent<Grabbable>());
         }
