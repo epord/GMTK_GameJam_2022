@@ -16,7 +16,12 @@ public class GrabManager : MonoBehaviour
             Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePos);
             this.holdedObject.transform.position = new Vector3(worldMousePosition.x, worldMousePosition.y, -2);
         }
-        else if (this.IsHoldingObject() && Input.GetMouseButtonUp(0)) {
+        else if (this.IsHoldingObject() && Input.GetMouseButtonUp(0))
+        {
+            if (!this.holdedObject.holdingZone.Equals(this.releaseZone))
+            {
+                FindObjectOfType<SoundEffectManager>().PlayMovePlant();
+            }
             this.ReleaseObject();
         }
     }

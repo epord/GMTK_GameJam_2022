@@ -16,12 +16,14 @@ public class BattleController : MonoBehaviour
 
     private Shop shop;
     private SoundManager soundManager;
+    private SoundEffectManager soundEffectManager;
     
     // Start is called before the first frame update
     void Start()
     {
         shop = FindObjectOfType<Shop>();
         this.soundManager = FindObjectOfType<SoundManager>();
+        this.soundEffectManager = FindObjectOfType<SoundEffectManager>();
     }
 
     // Update is called once per frame
@@ -55,11 +57,14 @@ public class BattleController : MonoBehaviour
         int kills = 0;
         int deaths = 0;
 
+        yield return new WaitForSeconds(2);
         for (int i = 0; i < 4; i++)
         {
+
             Dice playerPlant = fightingHoles[i].holdedItem.GetComponent<Dice>();
             fightingHoles[i].holdedItem.gameObject.SetActive(false);
 
+            this.soundEffectManager.PlayRollDice();
             int randomNumber = Random.Range(0, 6);
             playerPlant.selectedFace = playerPlant.diceFaces[randomNumber];
             GameObject newSingleBushFace = Instantiate(singleBushFacePrefab, fightingHoles[i].transform);
@@ -74,6 +79,7 @@ public class BattleController : MonoBehaviour
             if (playerFace.attack > enemyFace.defense)
             {
                 Debug.Log("EnemyDead!");
+                this.soundEffectManager.PlayPlantDying();
                 SingleBushFace bushFace = enemyPlant.gameObject.GetComponentInChildren<SingleBushFace>();
                 if(bushFace == null) throw new Exception("BushFaceNotFound!");
                 bushFace.Kill();
@@ -82,7 +88,8 @@ public class BattleController : MonoBehaviour
 
             if (enemyFace.attack > playerFace.defense)
             {
-                Debug.Log("PlayerPlantDead!");    
+                Debug.Log("PlayerPlantDead!");
+                this.soundEffectManager.PlayPlantDying();
                 newSingleBushFace.GetComponent<SingleBushFace>().Kill();
                 deaths += 1;
             }
@@ -94,7 +101,7 @@ public class BattleController : MonoBehaviour
 
         if (kills < deaths)
         {
-            // You lost battle. Trigger loss
+            this.soundEffectManager.PlayLoose();
          
         }
 
@@ -136,7 +143,7 @@ public class BattleController : MonoBehaviour
         shop.RefreshShop();
         shop.gameObject.SetActive(true);
         doingBattle = false;
-        this.soundManager.PlayBattleMusic();
+        this.soundManager.PlayWin();
     }
 
 

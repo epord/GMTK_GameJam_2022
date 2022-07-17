@@ -82,6 +82,7 @@ public class HoldingZone : MonoBehaviour
     {
         if (this.IsHoldingItem() && Input.GetMouseButtonDown(0))
         {
+            FindObjectOfType<SoundEffectManager>().PlayMovePlant();
             this.grabManager.GrabObject(this.holdedItem);
         }
     }
