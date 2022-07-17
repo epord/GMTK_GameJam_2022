@@ -16,7 +16,7 @@ public class DiceGenerator : MonoBehaviour
     {
         if (!this.holdingZone.IsHoldingItem())
         {
-            GameObject newDice = Instantiate(dicePrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            GameObject newDice = Instantiate(dicePrefab, this.transform);
             this.holdingZone.AssignItem(newDice.GetComponent<Grabbable>());
         }
     }
