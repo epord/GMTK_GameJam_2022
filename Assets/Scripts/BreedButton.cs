@@ -74,8 +74,15 @@ public class BreedButton : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             daddyClone[indeces[i]] = mommy[indeces[i]];
+            StartCoroutine(result.PLayMommy(indeces[i]));
+        }
+        
+        for (int i = 3; i < 6; i++)
+        {
+            StartCoroutine(result.PLayDaddy(indeces[i]));
         }
         result.SetDiceFaces(daddyClone);
+        
         breedRemaining -= 1;
     }
 }

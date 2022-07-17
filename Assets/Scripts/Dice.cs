@@ -62,6 +62,22 @@ public class Dice : MonoBehaviour
         system.Play();
         yield return 0;
     }
+    
+    public IEnumerator PLayDaddy(int index)
+    {
+        ParticleSystem system = flowerLocations[index].GetComponentsInChildren<ParticleSystem>()[2];
+        system.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        system.Play();
+        yield return 0;
+    }
+    
+    public IEnumerator PLayMommy(int index)
+    {
+        ParticleSystem system = flowerLocations[index].GetComponentsInChildren<ParticleSystem>()[3];
+        system.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        system.Play();
+        yield return 0;
+    }
 
     public IEnumerator AnimateBattle(int selectedIndex)
     {
