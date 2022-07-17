@@ -15,11 +15,13 @@ public class BattleController : MonoBehaviour
     public GameObject singleBushFacePrefab;
 
     private Shop shop;
+    private SoundManager soundManager;
     
     // Start is called before the first frame update
     void Start()
     {
         shop = FindObjectOfType<Shop>();
+        this.soundManager = FindObjectOfType<SoundManager>();
     }
 
     // Update is called once per frame
@@ -133,6 +135,7 @@ public class BattleController : MonoBehaviour
         shop.GetComponentInChildren<BreedButton>().breedRemaining = 3;
         shop.gameObject.SetActive(true);
         doingBattle = false;
+        this.soundManager.PlayBattleMusic();
     }
 
 

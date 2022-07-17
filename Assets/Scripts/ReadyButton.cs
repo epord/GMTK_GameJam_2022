@@ -12,12 +12,15 @@ public class ReadyButton : MonoBehaviour
 
     public Sprite readyEnabledSprite;
     public Sprite readyDisabledSprite;
-    
+
+    private SoundManager soundManager;
+
     private void Start()
     {
         battleController = FindObjectOfType<BattleController>();
         shop = FindObjectOfType<Shop>();
         shopObject = shop.gameObject;
+        this.soundManager = FindObjectOfType<SoundManager>();
     }
 
     private void Update()
@@ -45,6 +48,7 @@ public class ReadyButton : MonoBehaviour
             {
                 shopObject.SetActive(false);
                 battleController.GenerateEnemies(4, 1);
+                this.soundManager.PlayBattleMusic();
             }
         }
     }
