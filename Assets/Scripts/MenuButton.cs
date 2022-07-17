@@ -6,11 +6,17 @@ using UnityEngine.SceneManagement;
 public class MenuButton : MonoBehaviour
 {
     public string nextSceneName;
-    private void OnMouseOver()
+
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             SceneManager.LoadScene(nextSceneName);
         }
+    }
+
+    private void OnMouseOver()
+    {
+       
     }
 }

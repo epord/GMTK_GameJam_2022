@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: b88caf930cbcdce408bb7256ca4efb29
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PedroTest.unity
     guid: f1aa3ce213094c3468d3f3ed75846427
+  - enabled: 1
+    path: Assets/Scenes/MainGame.unity
+    guid: c7e3362b37ef13247ad28183a4c17f94
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: 1852eca23eed36246aea85e4f6ff6fd0

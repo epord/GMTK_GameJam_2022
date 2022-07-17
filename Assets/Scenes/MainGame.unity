@@ -252,6 +252,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 519986928}
     m_Modifications:
+    - target: {fileID: 711484428517396484, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 711484428517396484, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 711484428517396485, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
       propertyPath: m_Name
       value: FaceHoldingZone (4)
@@ -621,6 +629,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 519986928}
     m_Modifications:
+    - target: {fileID: 711484428517396484, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 711484428517396484, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 711484428517396485, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
       propertyPath: m_Name
       value: FaceHoldingZone (1)
@@ -1088,6 +1104,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 519986928}
     m_Modifications:
+    - target: {fileID: 711484428517396484, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 711484428517396484, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 711484428517396485, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
       propertyPath: m_Name
       value: FaceHoldingZone
@@ -1432,6 +1456,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 519986928}
     m_Modifications:
+    - target: {fileID: 711484428517396484, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 711484428517396484, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 711484428517396485, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
       propertyPath: m_Name
       value: FaceHoldingZone (3)
@@ -2548,6 +2580,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 519986928}
     m_Modifications:
+    - target: {fileID: 711484428517396484, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 711484428517396484, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 711484428517396485, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
       propertyPath: m_Name
       value: FaceHoldingZone (5)
@@ -2894,6 +2934,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 519986928}
     m_Modifications:
+    - target: {fileID: 711484428517396484, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 711484428517396484, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 711484428517396485, guid: a8e9d565ee7d22a4bafca95904005550, type: 3}
       propertyPath: m_Name
       value: FaceHoldingZone (2)
