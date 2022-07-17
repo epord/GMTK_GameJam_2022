@@ -143,7 +143,7 @@ public class BattleController : MonoBehaviour
         shop.RefreshShop();
         shop.gameObject.SetActive(true);
         doingBattle = false;
-        this.soundManager.PlayWin();
+        this.soundEffectManager.PlayWin();
     }
 
 

@@ -18,10 +18,6 @@ public class GrabManager : MonoBehaviour
         }
         else if (this.IsHoldingObject() && Input.GetMouseButtonUp(0))
         {
-            if (!this.holdedObject.holdingZone.Equals(this.releaseZone))
-            {
-                FindObjectOfType<SoundEffectManager>().PlayMovePlant();
-            }
             this.ReleaseObject();
         }
     }
@@ -43,12 +39,15 @@ public class GrabManager : MonoBehaviour
         {
             return;
         }
+
         if (this.releaseZone.CanConsumeItem(this.holdedObject.gameObject))
         {
+            FindObjectOfType<SoundEffectManager>().PlayMutation();
             this.releaseZone.ConsumeItem(this.holdedObject);
         }
         else if (this.releaseZone.CanHoldItemType(this.holdedObject.gameObject))
         {
+            FindObjectOfType<SoundEffectManager>().PlayMovePlant();
             this.releaseZone.AssignItem(this.holdedObject);
         }
         else

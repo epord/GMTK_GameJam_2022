@@ -10,6 +10,7 @@ public class SoundEffectManager : MonoBehaviour
     public AudioClip loose;
     public AudioClip movePlant;
     public AudioClip placePlant;
+    public AudioClip mutation;
 
     private AudioSource source;
     private void Start()
@@ -56,6 +57,13 @@ public class SoundEffectManager : MonoBehaviour
     {
         this.source.Stop();
         this.source.clip = placePlant;
+        this.source.Play();
+    }
+
+    public void PlayMutation()
+    {
+        this.source.Stop();
+        this.source.clip = mutation;
         this.source.Play();
     }
 }
