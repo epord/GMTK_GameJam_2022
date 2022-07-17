@@ -99,6 +99,11 @@ public class SingleBushFace : MonoBehaviour
 
                     leaf.transform.localScale += new Vector3(0.5f * Time.deltaTime, 0.5f * Time.deltaTime,
                         0.5f * Time.deltaTime);
+                    
+                    // collect the direction
+                    Vector3 dir = (transform.position - leaf.transform.position).normalized;
+                    // translate at speed
+                    leaf.transform.Translate(dir * 12f * Time.deltaTime);
                 }
                 catch (Exception e)
                 {
