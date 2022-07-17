@@ -57,25 +57,35 @@ public class BreedButton : MonoBehaviour
             Dice dice2 = this.input2.holdedItem.GetComponent<Dice>();
 
             GameObject newDice = Instantiate(dicePrefab, new Vector3(0, 0, 0), Quaternion.identity);
-            this.BreedDice(dice1.diceFaces, dice2.diceFaces, newDice.GetComponent<Dice>());
+            this.BreedDice(dice1, dice2, newDice.GetComponent<Dice>());
 
             this.output.AssignItem(newDice.GetComponent<Grabbable>());
         }
     }
 
-    private void BreedDice(DiceFace[] daddy, DiceFace[] mommy, Dice result)
+    private void BreedDice(Dice daddy, Dice mommy, Dice result)
     {
-        DiceFace[] daddyClone = (DiceFace[])daddy.Clone();
+        DiceFace[] daddyClone = (DiceFace[])daddy.diceFaces.Clone();
         int[] indeces = {0, 1, 2, 3, 4, 5};
         for (int i = 0; i < 7; i++)
         {
             Array.Sort(indeces, (x, y) => UnityEngine.Random.RandomRange(-10, 10));
         }
+
         for (int i = 0; i < 3; i++)
         {
-            daddyClone[indeces[i]] = mommy[indeces[i]];
+            daddyClone[indeces[i]] = mommy.diceFaces[indeces[i]];
+            StartCoroutine(result.PLayMommy(indeces[i]));
+            StartCoroutine(mommy.PLayMommy(indeces[i]));
+        }
+        
+        for (int i = 3; i < 6; i++)
+        {
+            StartCoroutine(result.PLayDaddy(indeces[i]));
+            StartCoroutine(daddy.PLayDaddy(indeces[i]));
         }
         result.SetDiceFaces(daddyClone);
+        
         breedRemaining -= 1;
     }
 }
