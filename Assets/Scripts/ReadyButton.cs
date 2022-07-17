@@ -16,8 +16,10 @@ public class ReadyButton : MonoBehaviour
     private SoundManager soundManager;
 
     private bool hovering;
+    
+    private bool firstTime = true;
 
-    private void Start()
+    private void Awake()
     {
         battleController = FindObjectOfType<BattleController>();
         shop = FindObjectOfType<Shop>();
@@ -59,14 +61,21 @@ public class ReadyButton : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                foreach (var holdingZone in shop.FightingZones)
-                {
-                    holdingZone.gameObject.SetActive(true);
-                }
-                shopObject.SetActive(false);
-                battleController.GenerateEnemies(4, shop.roundNumber*2);
-                this.soundManager.PlayBattleMusic();
+                StartBattle();
             }
         }
+    }
+
+    public void StartBattle()
+    {
+        foreach (var holdingZone in shop.FightingZones)
+        {
+            holdingZone.gameObject.SetActive(true);
+        }
+        shopObject.SetActive(false);
+        battleController.GenerateEnemies(4, shop.roundNumber*2);
+
+        if (firstTime) firstTime = false;
+        else this.soundManager.PlayBattleMusic();
     }
 }

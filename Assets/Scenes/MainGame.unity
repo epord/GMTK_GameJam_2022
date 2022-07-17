@@ -621,7 +621,7 @@ MonoBehaviour:
   - {fileID: 2060933701}
   - {fileID: 1020959349}
   - {fileID: 2146940106}
-  roundNumber: 1
+  roundNumber: 0
 --- !u!1001 &578270555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1762,6 +1762,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2070620651842004785, guid: e7b3e4e22f02f6447810973a13a656e0, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 03083183567cb8c4eb7d6e4c3a4fc1de, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7b3e4e22f02f6447810973a13a656e0, type: 3}
 --- !u!1001 &1293649497

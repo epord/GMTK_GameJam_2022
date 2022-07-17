@@ -8,7 +8,7 @@ public class PimpolloGenerator : MonoBehaviour
     public GameObject bushFace;
     private Shop shop;
 
-    void Start()
+    void Awake()    
     {
         shop = FindObjectOfType<Shop>();
         this.holdingZone = GetComponent<HoldingZone>();

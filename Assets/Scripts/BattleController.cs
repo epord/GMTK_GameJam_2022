@@ -25,7 +25,9 @@ public class BattleController : MonoBehaviour
         shop = FindObjectOfType<Shop>();
         this.soundManager = FindObjectOfType<SoundManager>();
         this.soundEffectManager = FindObjectOfType<SoundEffectManager>();
+        FindObjectOfType<ReadyButton>().StartBattle();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -65,11 +67,10 @@ public class BattleController : MonoBehaviour
             Dice playerPlant = fightingHoles[i].holdedItem.GetComponent<Dice>();
             int randomNumber = Random.Range(0, 6);
             StartCoroutine(playerPlant.AnimateBattle(randomNumber));
+            this.soundEffectManager.PlayRollDice();
             yield return new WaitForSeconds(2);
             fightingHoles[i].holdedItem.gameObject.SetActive(false);
 
-            this.soundEffectManager.PlayRollDice();
-            
             playerPlant.selectedFace = playerPlant.diceFaces[randomNumber];
             GameObject newSingleBushFace = Instantiate(singleBushFacePrefab, fightingHoles[i].transform);
             newSingleBushFace.GetComponent<SingleBushFace>().SetDiceFace(playerPlant.selectedFace);
@@ -173,6 +174,7 @@ public class BattleController : MonoBehaviour
 
     public void GenerateEnemies(int numEnemies, int dificulty)
     {
+        Debug.Log(dificulty);
         int[] dificulties = new int[numEnemies];
         int count = 0;
         int indice = 0;

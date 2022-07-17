@@ -10,7 +10,7 @@ public class Shop : MonoBehaviour
     public HoldingZone[] cleanZones;
     public HoldingZone[] FightingZones;
 
-    public int roundNumber = 1;
+    public int roundNumber = 0;
 
     public void RefreshShop()
     {
@@ -46,7 +46,7 @@ public class Shop : MonoBehaviour
     }
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         DiceGenerator diceGenerator = FindObjectOfType<DiceGenerator>();
         foreach (var holdingZone in bank)
