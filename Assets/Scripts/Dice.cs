@@ -79,7 +79,7 @@ public class Dice : MonoBehaviour
         yield return 0;
     }
 
-    public IEnumerator AnimateBattle(int selectedIndex)
+    public IEnumerator AnimateSelection(int selectedIndex)
     {
         for(int i = 0; i < 6; i++)
         {

@@ -68,16 +68,25 @@ public class BattleController : MonoBehaviour
 
             Dice playerPlant = fightingHoles[i].holdedItem.GetComponent<Dice>();
             int randomNumber = Random.Range(0, 6);
-            StartCoroutine(playerPlant.AnimateBattle(randomNumber));
+
+            StartCoroutine(playerPlant.AnimateSelection(randomNumber));
             this.soundEffectManager.PlayRollDice();
+            
             yield return new WaitForSeconds(2);
             fightingHoles[i].holdedItem.gameObject.SetActive(false);
-
+            
             playerPlant.selectedFace = playerPlant.diceFaces[randomNumber];
             GameObject newSingleBushFace = Instantiate(singleBushFacePrefab, fightingHoles[i].transform);
-            newSingleBushFace.GetComponent<SingleBushFace>().SetDiceFace(playerPlant.selectedFace);
+            SingleBushFace renderer = newSingleBushFace.GetComponent<SingleBushFace>();
+            renderer.SetDiceFace(playerPlant.selectedFace);
+            
 
+            SingleBushFace enemyRenderer = enemies[i].transform.GetComponentInChildren<SingleBushFace>();
+            renderer.Attack(false);
+            enemyRenderer.Attack(true);
             yield return new WaitForSeconds(2);
+            
+            
                 
             DiceFace playerFace = playerPlant.selectedFace;
             Enemy enemyPlant = enemies[i];
@@ -87,10 +96,13 @@ public class BattleController : MonoBehaviour
             {
                 Debug.Log("EnemyDead!");
                 this.soundEffectManager.PlayPlantDying();
-                SingleBushFace bushFace = enemyPlant.gameObject.GetComponentInChildren<SingleBushFace>();
-                if(bushFace == null) throw new Exception("BushFaceNotFound!");
-                bushFace.Kill();
+                if(enemyRenderer == null) throw new Exception("BushFaceNotFound!");
+                enemyRenderer.Kill();
                 kills += 1;
+            }
+            else
+            {
+                SpawnEnemy(i);
             }
 
             if (enemyFace.attack > playerFace.defense)
@@ -99,6 +111,12 @@ public class BattleController : MonoBehaviour
                 this.soundEffectManager.PlayPlantDying();
                 newSingleBushFace.GetComponent<SingleBushFace>().Kill();
                 deaths += 1;
+            }else
+            {
+                Destroy(newSingleBushFace);
+                newSingleBushFace = Instantiate(singleBushFacePrefab, fightingHoles[i].transform);
+                SingleBushFace newRenderer = newSingleBushFace.GetComponent<SingleBushFace>();
+                newRenderer.SetDiceFace(playerPlant.selectedFace);
             }
             
             yield return new WaitForSeconds(2);
@@ -199,9 +217,19 @@ public class BattleController : MonoBehaviour
         {
             DiceFace enemyFace = GenerateFace(dificulties[i]);
             enemies[i].enemyFace = enemyFace;
-            GameObject newSingleBushFace = Instantiate(singleBushFacePrefab, enemies[i].transform);
-            newSingleBushFace.GetComponent<SingleBushFace>().SetDiceFace(enemyFace);
+            SpawnEnemy(i);
         }
+    }
+
+    void SpawnEnemy(int i)
+    {
+        int childCount = enemies[i].transform.childCount;
+        if (childCount > 0)
+        {
+            Destroy(enemies[i].transform.GetChild(0).gameObject);
+        }
+        GameObject newSingleBushFace = Instantiate(singleBushFacePrefab, enemies[i].transform);
+        newSingleBushFace.GetComponent<SingleBushFace>().SetDiceFace(enemies[i].enemyFace);
     }
 
     DiceFace GenerateFace(int dificulty)

@@ -17,6 +17,19 @@ public class PimpolloComponent : MonoBehaviour
     public Sprite mixedPimpollo;
 
 
+    public SpriteRenderer getLeaf(int index)
+    {
+        switch (index)
+        {
+            case 0: return leaf1;
+            case 1: return leaf2;
+            case 2: return leaf3;
+            case 3: return leaf4;
+            case 4: return leaf5;
+        }
+
+        return null;
+    }
 
     public void RenderFace(DiceFace diceFace)
     {
