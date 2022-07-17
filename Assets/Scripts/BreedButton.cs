@@ -10,31 +10,48 @@ public class BreedButton : MonoBehaviour
     public HoldingZone output;
     public GameObject dicePrefab;
 
-    public Sprite spriteEnabled;
-    public Sprite SpriteDisabled;
+    public Sprite[] breedSignSprites = new Sprite[4];
+    public Sprite[] breedHoverSprites = new Sprite[4];
+    public Sprite[] breedDisableSprites = new Sprite[4];
     private SpriteRenderer renderer;
+
+    public int breedRemaining = 3;
+    private bool hovering = false;
 
     private void Start()
     {
         this.renderer = GetComponent<SpriteRenderer>();
-        this.renderer.sprite = SpriteDisabled;
+    }
+
+    private bool isDisabled()
+    {
+        return !this.input1.IsHoldingItem() || !this.input2.IsHoldingItem() || this.output.IsHoldingItem() || breedRemaining == 0;
     }
 
     private void Update()
     {
-        if (this.input1.IsHoldingItem() && this.input2.IsHoldingItem())
+        if (isDisabled())
         {
-            this.renderer.sprite = spriteEnabled;
+            this.renderer.sprite = breedDisableSprites[breedRemaining];
         }
-        else
+        else if (hovering && !Input.GetMouseButton(0))
         {
-            this.renderer.sprite = SpriteDisabled;
+            this.renderer.sprite = breedHoverSprites[breedRemaining];
+        } else
+        {
+            this.renderer.sprite = breedSignSprites[breedRemaining];
         }
+    }
+
+    private void OnMouseExit()
+    {
+        hovering = false;
     }
 
     private void OnMouseOver()
     {
-        if (this.input1.IsHoldingItem() && this.input2.IsHoldingItem() && !this.output.IsHoldingItem() && Input.GetMouseButtonDown(0))
+        hovering = true;
+        if (!isDisabled() && Input.GetMouseButtonUp(0))
         {
             Dice dice1 = this.input1.holdedItem.GetComponent<Dice>();
             Dice dice2 = this.input2.holdedItem.GetComponent<Dice>();
@@ -49,14 +66,16 @@ public class BreedButton : MonoBehaviour
     private void BreedDice(DiceFace[] daddy, DiceFace[] mommy, Dice result)
     {
         DiceFace[] daddyClone = (DiceFace[])daddy.Clone();
-        DiceFace[] mommyClone = (DiceFace[])mommy.Clone();
-
-        for (int i = 0; i < 4; i++)
+        int[] indeces = {0, 1, 2, 3, 4, 5};
+        for (int i = 0; i < 7; i++)
         {
-            Array.Sort(daddyClone, (x, y) => UnityEngine.Random.RandomRange(-10, 10));
-            Array.Sort(mommyClone, (x, y) => UnityEngine.Random.RandomRange(-10, 10));
+            Array.Sort(indeces, (x, y) => UnityEngine.Random.RandomRange(-10, 10));
         }
-
-        result.SetDiceFaces(new DiceFace[] { daddyClone[0], daddyClone[1], daddyClone[2], mommyClone[0], mommyClone[1], mommyClone[2]});
+        for (int i = 0; i < 3; i++)
+        {
+            daddyClone[indeces[i]] = mommy[indeces[i]];
+        }
+        result.SetDiceFaces(daddyClone);
+        breedRemaining -= 1;
     }
 }

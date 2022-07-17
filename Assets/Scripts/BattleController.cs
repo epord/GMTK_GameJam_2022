@@ -129,7 +129,8 @@ public class BattleController : MonoBehaviour
             SingleBushFace enemyBushResult = enemy.GetComponentInChildren<SingleBushFace>();
             Destroy(enemyBushResult.gameObject);
         }
-        
+
+        shop.GetComponentInChildren<BreedButton>().breedRemaining = 3;
         shop.gameObject.SetActive(true);
         doingBattle = false;
     }

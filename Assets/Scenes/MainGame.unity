@@ -230,7 +230,6 @@ MonoBehaviour:
   - {fileID: 2146940106}
   doingBattle: 0
   singleBushFacePrefab: {fileID: 3265036594733572964, guid: 252266de08faae94c922ba8395809139, type: 3}
-  shop: {fileID: 0}
 --- !u!4 &120556301
 Transform:
   m_ObjectHideFlags: 0
@@ -683,9 +682,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e4e5ecc5c17c745b8c469f6ff8db7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopObject: {fileID: 519986927}
   readyEnabledSprite: {fileID: 21300000, guid: 775c73be9091f8f40ba1254ebab410d6, type: 3}
-  readyDisabledSprite: {fileID: 21300000, guid: 2707824e305ccba4c8769ee64beb5a85, type: 3}
+  readyDisabledSprite: {fileID: 21300000, guid: bcc7a234e7b4c284c9a03d3bb983f766, type: 3}
 --- !u!212 &682973153
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1989,6 +1987,66 @@ PrefabInstance:
       propertyPath: output
       value: 
       objectReference: {fileID: 2030311216}
+    - target: {fileID: 2124410367877780850, guid: 073dd0c486727a948abf66dd5c9faa81, type: 3}
+      propertyPath: breedSignSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124410367877780850, guid: 073dd0c486727a948abf66dd5c9faa81, type: 3}
+      propertyPath: breedHoverSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124410367877780850, guid: 073dd0c486727a948abf66dd5c9faa81, type: 3}
+      propertyPath: breedDisableSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124410367877780850, guid: 073dd0c486727a948abf66dd5c9faa81, type: 3}
+      propertyPath: breedSignSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 73fdc83924841264b808d0de05679efa, type: 3}
+    - target: {fileID: 2124410367877780850, guid: 073dd0c486727a948abf66dd5c9faa81, type: 3}
+      propertyPath: breedSignSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 65d0bd72c4b2a544889dcfadeda47688, type: 3}
+    - target: {fileID: 2124410367877780850, guid: 073dd0c486727a948abf66dd5c9faa81, type: 3}
+      propertyPath: breedSignSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4388850d787dc1a4995972f604b5e271, type: 3}
+    - target: {fileID: 2124410367877780850, guid: 073dd0c486727a948abf66dd5c9faa81, type: 3}
+      propertyPath: breedSignSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9ec89760068070b4f900b1714c120c06, type: 3}
+    - target: {fileID: 2124410367877780850, guid: 073dd0c486727a948abf66dd5c9faa81, type: 3}
+      propertyPath: breedHoverSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 73fdc83924841264b808d0de05679efa, type: 3}
+    - target: {fileID: 2124410367877780850, guid: 073dd0c486727a948abf66dd5c9faa81, type: 3}
+      propertyPath: breedHoverSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 28b381d13e59640439d1ee6d5ffbcb15, type: 3}
+    - target: {fileID: 2124410367877780850, guid: 073dd0c486727a948abf66dd5c9faa81, type: 3}
+      propertyPath: breedHoverSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 342d0fba9a264f347b230f957b05e3ab, type: 3}
+    - target: {fileID: 2124410367877780850, guid: 073dd0c486727a948abf66dd5c9faa81, type: 3}
+      propertyPath: breedHoverSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 43dbf713f79df9145b388e4f46a46ad7, type: 3}
+    - target: {fileID: 2124410367877780850, guid: 073dd0c486727a948abf66dd5c9faa81, type: 3}
+      propertyPath: breedDisableSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 73fdc83924841264b808d0de05679efa, type: 3}
+    - target: {fileID: 2124410367877780850, guid: 073dd0c486727a948abf66dd5c9faa81, type: 3}
+      propertyPath: breedDisableSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: de66039d88b568f48936d72c56ed8922, type: 3}
+    - target: {fileID: 2124410367877780850, guid: 073dd0c486727a948abf66dd5c9faa81, type: 3}
+      propertyPath: breedDisableSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: f74ce6b84f62015488e79fb51d988469, type: 3}
+    - target: {fileID: 2124410367877780850, guid: 073dd0c486727a948abf66dd5c9faa81, type: 3}
+      propertyPath: breedDisableSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 88268b6085f2e32458e5d97e169cef62, type: 3}
     - target: {fileID: 2124410367877780860, guid: 073dd0c486727a948abf66dd5c9faa81, type: 3}
       propertyPath: m_Name
       value: breedButtonPrefab
