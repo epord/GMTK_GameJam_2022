@@ -6,11 +6,13 @@ using Random = UnityEngine.Random;
 
 public class BattleController : MonoBehaviour
 {
-    private Enemy[] enemies;
+    public Enemy[] enemies;
 
     private Hole[] fightingHoles;
 
     public bool doingBattle = false;
+    public GameObject singleBushFacePrefab;
+
     
     // Start is called before the first frame update
     void Start()
@@ -88,7 +90,7 @@ public class BattleController : MonoBehaviour
     }
 
 
-    void GenerateEnemies(int numEnemies, int dificulty)
+    public void GenerateEnemies(int numEnemies, int dificulty)
     {
         int[] dificulties = new int[numEnemies];
         int count = 0;
@@ -104,7 +106,7 @@ public class BattleController : MonoBehaviour
                 count += 1;
             }
             indice += 1;
-            indice = indice%4;
+            indice = indice % 4;
         }
 
         for (int i = 0; i < 4; i++)
@@ -112,6 +114,8 @@ public class BattleController : MonoBehaviour
             DiceFace enemyFace = GenerateFace(dificulties[i]);
             enemies[i].alive = true;
             enemies[i].enemyFace = enemyFace;
+            GameObject newSingleBushFace = Instantiate(singleBushFacePrefab, enemies[i].transform);
+            newSingleBushFace.GetComponent<SingleBushFace>().SetDiceFace(enemyFace);
         }
     }
 
