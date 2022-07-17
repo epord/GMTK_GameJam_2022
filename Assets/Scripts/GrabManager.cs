@@ -14,7 +14,7 @@ public class GrabManager : MonoBehaviour
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = 10;
             Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePos);
-            this.holdedObject.transform.position = new Vector3(worldMousePosition.x, worldMousePosition.y, this.holdedObject.transform.position.z);
+            this.holdedObject.transform.position = new Vector3(worldMousePosition.x, worldMousePosition.y, -2);
         }
         else if (this.IsHoldingObject() && Input.GetMouseButtonUp(0)) {
             this.ReleaseObject();
