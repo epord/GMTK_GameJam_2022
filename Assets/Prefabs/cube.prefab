@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 589230878463290340}
   - component: {fileID: 4603865922124164439}
   m_Layer: 2
-  m_Name: Cube
+  m_Name: cube
   m_TagString: Dice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,9 +124,7 @@ MonoBehaviour:
   selectedFace:
     attack: 0
     defense: 0
-    firstAttack: 0
-    buff: 0
-    debuff: 0
+    type: 0
   flowerLocations:
   - {fileID: 8101434873022887887}
   - {fileID: 63304337021773200}
@@ -134,6 +132,7 @@ MonoBehaviour:
   - {fileID: 4950362354907238014}
   - {fileID: 3445636880602022438}
   - {fileID: 4840204636304863158}
+  bushFacePrefab: {fileID: 239282387829123798, guid: 8013c0618f7984945a8a5ee67c639a88, type: 3}
   alive: 0
 --- !u!58 &4603865922124164439
 CircleCollider2D:

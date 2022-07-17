@@ -13,12 +13,6 @@ public class PimpolloGenerator : MonoBehaviour
         this.Generate();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Generate()
     {
         if (!this.holdingZone.IsHoldingItem())
@@ -26,7 +20,8 @@ public class PimpolloGenerator : MonoBehaviour
             GameObject newBush = Instantiate(this.bushFace, this.transform);
             this.holdingZone.AssignItem(newBush.GetComponent<Grabbable>());
             BushFace bushFace = newBush.GetComponent<BushFace>();
-            bushFace.SetDiceFace(new DiceFace(DiceFace.Type.PIMPOLLO, 1, 1));
+            int attack = Random.Range(0, 6);
+            bushFace.SetDiceFace(new DiceFace(DiceFace.Type.PIMPOLLO, attack, 5-attack));
         }
     }
 }
