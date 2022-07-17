@@ -69,15 +69,21 @@ public class BattleController : MonoBehaviour
             Enemy enemyPlant = enemies[i];
             DiceFace enemyFace = enemyPlant.enemyFace;
 
+           
+            
             if (playerFace.attack > enemyFace.defense)
             {
-                enemyPlant.gameObject.GetComponent<SingleBushFace>().alive = false;
+                Debug.Log("EnemyDead!");
+                SingleBushFace bushFace = enemyPlant.gameObject.GetComponentInChildren<SingleBushFace>();
+                if(bushFace == null) throw new Exception("BushFaceNotFound!");
+                bushFace.Kill();
                 kills += 1;
             }
 
             if (enemyFace.attack > playerFace.defense)
             {
-                playerPlant.gameObject.GetComponent<SingleBushFace>().alive = false;
+                Debug.Log("PlayerPlantDead!");    
+                newSingleBushFace.GetComponent<SingleBushFace>().Kill();
                 deaths += 1;
             }
             

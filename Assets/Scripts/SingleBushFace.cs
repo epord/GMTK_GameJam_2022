@@ -10,7 +10,16 @@ public class SingleBushFace : MonoBehaviour
     public GameObject pimpolloPrefab;
     public GameObject deadBushPrefab;
 
+    private GameObject pimpollo;
+
     public bool alive = true;
+
+    public void Kill()
+    {
+        alive = false;
+        Destroy(pimpollo);
+        Instantiate(deadBushPrefab, this.transform);
+    }
 
     public void SetDiceFace(DiceFace diceFace)
     {
@@ -20,12 +29,8 @@ public class SingleBushFace : MonoBehaviour
             case DiceFace.Type.PIMPOLLO:
                 if (alive)
                 {
-                    GameObject newPimpollo = Instantiate(pimpolloPrefab, this.transform);
-                    newPimpollo.GetComponent<PimpolloComponent>().RenderFace(diceFace);
-                }
-                else
-                {
-                    GameObject newDeadBush = Instantiate(deadBushPrefab, this.transform);
+                    pimpollo = Instantiate(pimpolloPrefab, this.transform);
+                    pimpollo.GetComponent<PimpolloComponent>().RenderFace(diceFace);
                 }
                 break;
             //case DiceFace.Type.DEFENSE_BUG:

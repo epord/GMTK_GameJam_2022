@@ -8,4 +8,18 @@ public class SnappingZone : HoldingZone
     {
         base.Start();
     }
+
+    private void Update()
+    {
+        if (holdedItem != null)
+        {
+            SpriteRenderer renderer = this.gameObject.GetComponent<SpriteRenderer>();
+            if (renderer != null) renderer.enabled = false;
+        }
+        else
+        {
+            SpriteRenderer renderer = this.gameObject.GetComponent<SpriteRenderer>();
+            if (renderer != null) renderer.enabled = true;
+        }
+    }
 }

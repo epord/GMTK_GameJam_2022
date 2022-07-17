@@ -51,3 +51,5 @@ MonoBehaviour:
   defenseBug: {fileID: 0}
   offenseBug: {fileID: 0}
   pimpolloPrefab: {fileID: 8813191035506224068, guid: 1b0e9f702655c644aa3dcbb4b4beb7a5, type: 3}
+  deadBushPrefab: {fileID: 269032481582204339, guid: 4e5622cc23f337d42b872295fe4fc1c7, type: 3}
+  alive: 1
