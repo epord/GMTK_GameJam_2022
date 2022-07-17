@@ -27,11 +27,13 @@ public class SingleBushFace : MonoBehaviour
         switch (diceFace.type)
         {
             case DiceFace.Type.PIMPOLLO:
-                if (alive)
+                PimpolloComponent pimpollo = GetComponentInChildren<PimpolloComponent>();
+                if (pimpollo == null)
                 {
-                    pimpollo = Instantiate(pimpolloPrefab, this.transform);
-                    pimpollo.GetComponent<PimpolloComponent>().RenderFace(diceFace);
+                    GameObject newPimpollo = Instantiate(pimpolloPrefab, this.transform);
+                    pimpollo = newPimpollo.GetComponent<PimpolloComponent>();
                 }
+                pimpollo.RenderFace(this.diceFace);
                 break;
             //case DiceFace.Type.DEFENSE_BUG:
             //    Instantiate(defenseBug, this.transform);

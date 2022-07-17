@@ -59,7 +59,7 @@ public class BattleController : MonoBehaviour
             fightingHoles[i].holdedItem.gameObject.SetActive(false);
 
             int randomNumber = Random.Range(0, 6);
-            playerPlant.selectedFace = playerPlant.dicefaces[randomNumber];
+            playerPlant.selectedFace = playerPlant.diceFaces[randomNumber];
             GameObject newSingleBushFace = Instantiate(singleBushFacePrefab, fightingHoles[i].transform);
             newSingleBushFace.GetComponent<SingleBushFace>().SetDiceFace(playerPlant.selectedFace);
 

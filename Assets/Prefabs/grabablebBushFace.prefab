@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 239282387829123796}
   - component: {fileID: 239282387829123799}
-  - component: {fileID: 103783486179010522}
+  - component: {fileID: 6458731808068047425}
   m_Layer: 0
   m_Name: grabablebBushFace
-  m_TagString: Untagged
+  m_TagString: Face
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
   defenseBug: {fileID: 0}
   offenseBug: {fileID: 0}
   pimpolloPrefab: {fileID: 4850404601100590185, guid: d5a63a982987b4a4687d6a47b6388db4, type: 3}
---- !u!114 &103783486179010522
+--- !u!114 &6458731808068047425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,13 +61,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 239282387829123798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b327e48e3b9f96458f3c765b8eee9fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 01f6a1c515091224c940ed070f59ba4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isGrabbed: 0
   grabManager: {fileID: 0}
   holdingZone: {fileID: 0}
-  diceFace:
-    attack: 0
-    defense: 0
-    type: 0

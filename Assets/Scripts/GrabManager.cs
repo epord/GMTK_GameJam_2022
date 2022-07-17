@@ -17,6 +17,13 @@ public class GrabManager : MonoBehaviour
             this.holdedObject.transform.position = new Vector3(worldMousePosition.x, worldMousePosition.y, -2);
         }
         else if (this.IsHoldingObject() && Input.GetMouseButtonUp(0)) {
+
+            Debug.Log("Mouse up");
+            if (holdedObject!=null && this.holdedObject.GetComponent<BushFace>() != null)
+            {
+                Debug.Log(this.holdedObject.GetComponent<BushFace>().diceFace.attack);
+                Debug.Log(this.holdedObject.GetComponent<BushFace>().diceFace.defense);
+            }
             this.ReleaseObject();
         }
     }

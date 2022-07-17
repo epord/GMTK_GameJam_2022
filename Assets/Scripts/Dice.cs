@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class Dice : MonoBehaviour
 {
     [SerializeField]
-    public DiceFace[] dicefaces;
+    public DiceFace[] diceFaces;
 
     public DiceFace selectedFace;
     public Transform[] flowerLocations;
@@ -16,14 +16,20 @@ public class Dice : MonoBehaviour
 
     void Awake()
     {
-        this.dicefaces = new DiceFace[6];
+        this.diceFaces = new DiceFace[6];
         for (int i = 0; i < 6; i++)
         {
-            this.dicefaces[i] = new DiceFace(DiceFace.Type.PIMPOLLO, 1, 1);
+            this.diceFaces[i] = new DiceFace(DiceFace.Type.PIMPOLLO, 1, 1);
             GameObject newBushFace = Instantiate(bushFacePrefab, this.flowerLocations[i].transform);
-            newBushFace.GetComponent<BushFace>().SetDiceFace(this.dicefaces[i]);
+            newBushFace.GetComponent<BushFace>().SetDiceFace(this.diceFaces[i]);
         }
 
+    }
+
+    public void ReplaceFace(int idx, DiceFace diceFace)
+    {
+        this.diceFaces[idx] = diceFace;
+        flowerLocations[idx].GetComponentInChildren<BushFace>().SetDiceFace(diceFace);
     }
 
 

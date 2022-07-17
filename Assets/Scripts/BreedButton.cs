@@ -40,7 +40,7 @@ public class BreedButton : MonoBehaviour
             Dice dice2 = this.input2.holdedItem.GetComponent<Dice>();
 
             GameObject newDice = Instantiate(dicePrefab, new Vector3(0, 0, 0), Quaternion.identity);
-            this.BreedDice(dice1.dicefaces, dice2.dicefaces, newDice.GetComponent<Dice>());
+            this.BreedDice(dice1.diceFaces, dice2.diceFaces, newDice.GetComponent<Dice>());
 
             this.output.AssignItem(newDice.GetComponent<Grabbable>());
         }
@@ -54,6 +54,6 @@ public class BreedButton : MonoBehaviour
         Array.Sort(daddyClone, (x, y) => UnityEngine.Random.RandomRange(-10, 10));
         Array.Sort(mommyClone, (x, y) => UnityEngine.Random.RandomRange(-10, 10));
 
-        result.dicefaces = new DiceFace[] { daddyClone[0], daddyClone[1], daddyClone[2], mommyClone[0], mommyClone[1], mommyClone[2]};
+        result.diceFaces = new DiceFace[] { daddyClone[0], daddyClone[1], daddyClone[2], mommyClone[0], mommyClone[1], mommyClone[2]};
     }
 }
