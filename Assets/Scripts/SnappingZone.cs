@@ -2,20 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SnappingZone : MonoBehaviour
+public class SnappingZone : HoldingZone
 {
-    private GrabManager grabManager;
-    private void Start()
+    public void Start()
     {
-        this.grabManager = FindObjectOfType<GrabManager>();
+        base.Start();
     }
 
     private void OnMouseEnter()
-    {
-        this.grabManager.SetReleaseZone(this);
-    }
-
-    private void OnMouseOver()
     {
         this.grabManager.SetReleaseZone(this);
     }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 711484428517396481}
   - component: {fileID: 711484428517396486}
   m_Layer: 0
-  m_Name: ReleaseZonePrefab
+  m_Name: FaceHoldingZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,3 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb973881f9d297a44a51067c2375a20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grabManager: {fileID: 0}
+  holdedItem: {fileID: 0}
+  allowedTypes: []

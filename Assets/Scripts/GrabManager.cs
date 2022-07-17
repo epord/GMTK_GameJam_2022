@@ -4,48 +4,70 @@ using UnityEngine;
 
 public class GrabManager : MonoBehaviour
 {
-    public Grabbable holdedItem;
-    public SnappingZone releaseZone;
+    public Grabbable holdedObject;
+    public HoldingZone releaseZone;
+
+    void Update()
+    {
+        if (this.IsHoldingObject() && Input.GetMouseButton(0))
+        {
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = 10;
+            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePos);
+            this.holdedObject.transform.position = new Vector3(worldMousePosition.x, worldMousePosition.y, this.holdedObject.transform.position.z);
+        }
+        else if (this.IsHoldingObject() && Input.GetMouseButtonUp(0)) {
+            this.ReleaseObject();
+        }
+    }
 
     public void GrabObject(Grabbable o)
     {
-        if (this.holdedItem != null)
+        if (this.holdedObject != null)
         {
             throw new System.Exception("There is already an object being holded");
         }
 
-        this.holdedItem = o;
+        this.holdedObject = o;
         o.isGrabbed = true;
-        o.gameObject.layer = 2; // Move to "Ignore Raycast" layer
     }
 
     public void ReleaseObject()
     {
-        if (!this.CanReleaseObject())
+        if (!this.CanReleaseObject() || !this.IsHoldingObject())
         {
             return;
         }
-
-        this.holdedItem.gameObject.layer = 0; // Move to "Default" layer
-        Vector3 releaseZonePos = this.releaseZone.transform.position;
-        this.holdedItem.transform.position = new Vector3(releaseZonePos.x, releaseZonePos.y, this.transform.position.z);
-        this.holdedItem.isGrabbed = false;
-        this.holdedItem = null;
+        if (this.releaseZone.CanHoldItemType(holdedObject.gameObject))
+        {
+            this.releaseZone.AssignItem(this.holdedObject);
+        } else
+        {
+            this.holdedObject.holdingZone.AssignItem(this.holdedObject);
+        }
+        this.holdedObject = null;
     }
 
     public bool IsHoldingObject()
     {
-        return this.holdedItem != null;
+        return this.holdedObject != null;
     }
 
-    public void SetReleaseZone(SnappingZone zone)
+    public void SetReleaseZone(HoldingZone zone)
     {
         this.releaseZone = zone;
     }
 
     public void UnsetReleaseZone()
     {
-        this.releaseZone = null;
+        if (this.holdedObject != null)
+        {
+            this.releaseZone = this.holdedObject.holdingZone;
+        }
+        else
+        {
+            this.releaseZone = null;
+        }
     }
 
     public bool CanReleaseObject()
